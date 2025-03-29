@@ -228,7 +228,7 @@ body {
 }
  
  .menu-item.blue {
-    background: url('Img/home.png') no-repeat center center;
+    background: url('https://cdn-icons-png.flaticon.com/128/2948/2948025.png') no-repeat center center;
     background-size: 60%;
     background-color: #669AE1;
     box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
@@ -242,7 +242,7 @@ body {
  }
  
  .menu-item.green {
-    background: url('Img/login.png') no-repeat center center;
+    background: url('https://cdn-icons-png.flaticon.com/128/5264/5264565.png') no-repeat center center;
     background-color: #70CC72;
     background-size: 60%;
     box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
