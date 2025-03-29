@@ -1,0 +1,112 @@
+body {
+  width: 100%;
+}
+
+
+h1 {
+  font-family: 'Raleway';
+  font-weight: bold;
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  margin-top: 120px;
+}
+
+/* PAGES
+-------------------------------------------------*/
+#main-page {
+  height: 25px;
+  width: 375px;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  background-color: #ffffff;
+  display: none;
+}
+
+#next-page {
+  height: 25px;
+  width: 375px;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  background-color: #27ae60;
+  display: none;
+}
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.center-image {
+  width: 300px;
+  height: auto;
+  border-radius: 30px;
+  margin: 0 20px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  color: #cccccc;
+}
+
+.maincontent, .nextcontent {
+  padding-top: 40px;
+  display: none;
+}
+
+a.back{
+  font-family: 'Lato';
+  font-size: 20px;
+  color: #dfdfdf;
+  text-decoration: none;
+  text-align: center;
+  width: 20%;
+  margin: 25px auto 30px auto;
+  display: block;
+}
+
+/* 버튼을 하단 중앙에 고정 */
+a.mainlink, a.nextlink {
+  position: absolute;
+  bottom: 30%;          /* 하단으로부터의 간격 (원하는 값으로 조정) */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Lato';
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 15px 10px;
+  text-align: center;
+  width: 13%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+a.mainlink:hover, a.nextlink:hover{
+  background: #fff;
+  color: #575757;
+} 
+
+.profile-image {
+  width: 20%;       /* 이미지 크기 */
+  height: auto;       /* 비율 유지 */
+  border-radius: 30px;
+  margin: 0 50px;     /* 좌우 간격 */
+
+  
+}
+
