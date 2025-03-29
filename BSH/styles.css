@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%; /* 페이지 전체 높이를 100%로 설정 */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-y: scroll; /* 세로 스크롤 활성화 */
+}
+
+/* header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+} */
+
+h1 {
+    margin: 0;
+}
+
+.page {
+    height: 100vh; /* 각 페이지는 화면의 100% 높이를 차지 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    transition: transform 1s ease-in-out;
+    overflow: hidden; /* 화면을 넘는 부분을 숨기기 */
+}
+
+/* footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+} */
+
+video, audio {
+    width: 80%;
+    margin: 20px 0;
+    max-width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    header {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    video, audio {
+        width: 100%;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
