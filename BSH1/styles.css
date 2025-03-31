@@ -97,3 +97,14 @@ button:hover {
         font-size: 14px;
     }
 }
+
+#navi-container {
+    position: fixed;
+    margin: auto;
+    top: 10%; /* 상단 여백 */
+    left: 8%; /* 우측 여백 */
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 26px;
+    z-index: 1000;
+}

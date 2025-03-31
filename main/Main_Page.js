@@ -125,8 +125,6 @@ const images = [
 // 	window.location.href = links[currentIndex];
 //   });
 
-
-// jquery >> 순수 js로 리팩토링중
   document.getElementById("prev-btn").addEventListener("click", function(){
 	  currentIndex = (currentIndex - 1 + images.length) % images.length;
 	  imageElement.src = images[currentIndex];
