@@ -489,7 +489,7 @@ canvas.background {
 
 .container
 {
-    width: 60%;
+    width: 40%;
     border: 2px solid #333;
     margin: 0 auto;
     padding: 15px 10px;
@@ -521,9 +521,6 @@ input[type="text"], button
     cursor: pointer;
 }
 
-input[type="text"], button:hover {
-    border: 2px solid #000000;
-}
 input[type="text"]
 {
     color: #fff;
