@@ -11,17 +11,6 @@ body {
     overflow-y: scroll; /* 세로 스크롤 활성화 */
 }
 
-/* header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
-} */
-
 h1 {
     margin: 0;
 }
@@ -33,17 +22,10 @@ h1 {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 0;
     transition: transform 1s ease-in-out;
     overflow: hidden; /* 화면을 넘는 부분을 숨기기 */
 }
-
-/* footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-} */
 
 video, audio {
     width: 80%;
