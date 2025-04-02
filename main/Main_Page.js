@@ -96,7 +96,7 @@ const images = [
   const links = [
 	"../BSH1/index.html",
 	"../profile_01/profile_jihun.html",
-	"../profile_01/profile_suhyeon.html",
+	"../ljh/cardpage.html",
 	"../profile_01/profile_hyunwoo.html"
   ];
   
