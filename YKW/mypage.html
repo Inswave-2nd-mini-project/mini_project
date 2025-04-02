@@ -1,0 +1,297 @@
+<html>
+    <head>
+        <title>It's Me!</title>
+        <!-- Compiled and minified CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Main stylesheet -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="mypage.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/bootstrap.js"></script>   
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="script.js"></script>
+        <!--swiper-->
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+
+    </head>
+    <body>
+
+        <!--------------------------- Nav bar ------------------------------------>
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <!-- 이미지 왼쪽 배치 -->
+                        <a href="#" class="header-img">
+                            <i class="bi bi-code-slash"></i>
+                            <!--img src="img/headermonitor.png" alt="HeaderImg" class="headerImg"-->
+                        </a>
+                        <!-- 네비게이션 리스트 (오른쪽 배치) -->
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="#landing">Home</a></li>
+                            <li><a href="#About-Me">About Me</a></li>
+                            <li><a href="#work">Projects</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--------------------------- Nav bar END--------------------------------->
+
+
+
+        <!------------------ 메인 Landing Screen ---------------------------------->
+        <div class="section" id="landing">
+                <h5 id="mainText" class="center">My Name Is</h5>
+                <h1 class="center">
+                    <b>Yeo</b> Kyungwon
+                </h1>
+                <h6 id="mainText" class="center">Web Developer <br/><br/> @ Inswave Systems</h6>
+                
+        </div>
+        <!------------------ 메인 Landing Screen END------------------------------->
+
+
+
+        <!-- Intro and service -->
+
+        <!-- <div id="intro" class="section">
+            <div class="container">
+                <div class="row">
+                    <div  class="col s12">
+                        <h2 class="center header"> "나는 여경원....<br/>
+                            나의 소개를 하지....@@@소개@@"</h2>
+                    </div>
+                </div>
+                <div class="row center">
+                    <div class="col s12 m12 l3">
+                        <img class="responsive-img" src="./img/가자집으로.jpg">
+                    </div>
+                    <div class="col s12 m12 offset-l1 l8 ">
+                        <h5 class="center"><b>ABOUT ME</b></h5>
+                        <p>
+                            소개1
+                            <br />
+                            <i>“If there's one thing you learn by working on a lot of different Web sites, 
+                                it's that almost any design idea--no matter how appallingly bad--can be made usable in 
+                                the right circumstances, with enough effort.” </i> 
+                        </p>
+                        <p>
+                            소개2
+                            <br />
+                            <i>“If there's one thing you learn by working on a lot of different Web sites, 
+                                it's that almost any design idea--no matter how appallingly bad--can be made usable in 
+                                the right circumstances, with enough effort.” </i> 
+                        </p>
+                        <p>
+                            소개3
+                            <br />
+                            <i>“If there's one thing you learn by working on a lot of different Web sites, 
+                                it's that almost any design idea--no matter how appallingly bad--can be made usable in 
+                                the right circumstances, with enough effort.” </i> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <!------------------ About Me 자기소개 section ---------------------------------->
+        <div class="section" style="background-color: #d8c3c3;" id="About-Me">
+            <div class="container">
+                <h3 class="header text_b center">About Me</h3>
+                <div class="row ">
+                    <div class="col s12 m12 l4">
+                        <div class="card" style="width: 400px; background-color: rgb(0, 0, 0);">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296368i7170CAE2B0B78930/image-size/large?v=v2&px=999" style="height:20%;">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Profile <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#"></a>#나이 &nbsp; #학교</p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col s12 m12 l4">
+                        <div class="card"  style="width: 400px; background-color: rgb(0, 0, 0);">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296364iCE1B2A9A29E80CDA/image-size/large?v=v2&px=999" style="height:20%;">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Personality <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#">#MBTI &nbsp; #성격</a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l4">
+                        <div class="card"  style="width: 400px; background-color: rgb(0, 0, 0);">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296369iFCC93751233D6732/image-size/large?v=v2&px=999" style="height:20%;">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Favorite <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#">#운동 &nbsp; #음식</a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!------------------ About Me 자기소개 section  END---------------------------------->
+
+
+
+        <!--Parallax-->
+        <!-- <div id="p1" class="parallax-container">
+            <div  class="parallax">
+                <img src="https://user-images.githubusercontent.com/26179770/37276909-311e65d2-2609-11e8-9fb9-fa2a6838b02f.png">
+                
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 center white-text">
+                        <h1><b>QUOTE</b></h1>
+                        <h4 >"Don’t be trapped by dogma –
+                            which is living with the results of other people’s thinking. <br />
+                            Don’t let the noise of other’s opinions drown out your own inner voice."
+                        </h4>
+                    </div>
+                </div>
+            </div>
+                
+        </div> -->
+
+        <!--Work-->
+        <div class="section" style="background-color: #A9B5DF;" id="work">
+            <div class="container">
+                <h3 class="header text_b center">My Projects </h3>
+                <div class="row ">
+                    <div class="col s12 m12 l4">
+                        <div class="card  black">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://user-images.githubusercontent.com/26179770/37276972-5da20028-2609-11e8-8359-4628ff3f1a94.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#">Project link</a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col s12 m12 l4">
+                        <div class="card  black">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://user-images.githubusercontent.com/26179770/37278850-07bbefd8-260f-11e8-83e6-eae457a97ff9.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#">Project link</a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l4">
+                        <div class="card  black">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://user-images.githubusercontent.com/26179770/37276972-5da20028-2609-11e8-8359-4628ff3f1a94.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                                <p><a class="purple-text text-lighten-5" href="#">Project link</a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">Project Title <i class="mdi-navigation-close right"></i></span>
+                                <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    
+        <!-- Skill Sets -->
+
+        <div class="section" style="background-color: #7886C7;" id="skillsets">
+            <div class="container">
+                <div class="row">
+                    <h1 class="center white-text">
+                        My Skills
+                    </h1>
+                </div>
+                <div class="row center">
+                    <div class="col s12 m12 l3">
+                        <img class="responsive-img" src="https://user-images.githubusercontent.com/26179770/37278917-3c5a76c4-260f-11e8-8a95-92f8b130f9be.png">
+                    </div>
+                    <div class="col s12 m12 l3">
+                        <img class="responsive-img" src="https://user-images.githubusercontent.com/26179770/37278987-65f7f858-260f-11e8-8160-d538da73c4c3.png">
+                    </div>
+                    <div class="col s12 m12 l3">
+                        <img class="responsive-img" src="https://user-images.githubusercontent.com/26179770/37279017-7c6112e6-260f-11e8-8165-5c3459c12222.png">
+                    </div>
+                    <div class="col s12 m12 l3">
+                        <img class="responsive-img" src="https://user-images.githubusercontent.com/26179770/37279040-8e589b7c-260f-11e8-8d03-691c29f2a402.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!----------------사이드 SNS 버튼----------------------------------->
+
+        <div class="fixed-action-btn vertical">
+            <a class="btn-floating btn-large">
+                <i class="fa fa-comments"></i>
+            </a>
+            <ul>
+                <li><a target="_blank" href="https://www.instagram.com/kyung__won_" class="instagram btn-floating"><i class="fa fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://github.com/kyungwon2won2" class="github btn-floating "><i class="fa fa-github"></i></a></li>
+                <li><a target="_blank" href="https://velog.io/@ykw1230" class="velog btn-floating"><i class="fa fa-bookmark"></i></a></li> 
+                <li><a target="_blank" onclick="phone()" class="contact btn-floating"><i class="fa fa-phone"></i></a></li>
+                <br/>
+            </ul>
+        </div>
+
+        <!----------------사이드 SNS 버튼 END-------------------------------->
+        
+
+
+        <!-- FOOTER -->
+
+        <footer class="section page-footer" style="background-color: #2D336B;">
+            <div class="container center-align">
+                <i class="bi bi-universal-access"></i> 나의 자기소개 페이지 만들기
+            </div>
+        </footer>
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    </body>
+</html>
