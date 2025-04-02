@@ -53,4 +53,27 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 // 두번째 페이지 js 코드
 
+// 세번째 Js코드
+const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty';
+const serviceKey = 'EEbGWW3rlvrQtiEStFYZEv/mosDPSlQMONoeafgPUDteX/qP1q3nZQr/ZosOGgVG1xj7QS+0AZFrGF7ePkycWg==';
+
+const params = new URLSearchParams({
+	serviceKey: serviceKey,
+	returnType: 'json',
+	sidoName: '서울',
+	numOfRows: '100',
+	pageNo: '1'
+  });
+  
+  fetch(`${url}?${params}`)
+	.then(response => {
+	  if (!response.ok) throw new Error('Network response was not ok');
+	  return response.json();
+	})
+	.then(data => {
+	  console.log('미세먼지 데이터:', data);
+	})
+	.catch(error => {
+	  console.error('API 호출 오류:', error);
+	});
 	  
