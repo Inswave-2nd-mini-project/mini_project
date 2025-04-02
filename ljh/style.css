@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+/* 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap');
+
+html, body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 노말라이즈 */
+html, body, h1, h2, h3, h4, h5, h6, div, p, blockquote, pre, code, address, ul, ol, li, menu, nav, section, article, aside, dl, dt, dd, table, thead, tbody, tfoot, label, caption, th, td, form, fieldset, legend, hr, input, button, textarea, object, figure, figcaption {
+    margin:0;
+    padding:0;
+}
+
+main, header, section, nav, footer, aside, article, figure {
+    display:block;
+}
+
+html{
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+html, body {
+    overflow-x:hidden; /* 반응형 */
+}
+
+ul, ol, li {
+    list-style:none;
+}
+
+h1, h2, h3, h4, strong, th {
+    font-weight:normal;
+    font-family:inherit;
+    color:inherit;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+    outline:none;
+}
+
+i, em {font-style: normal;}
+
+/* 헤더 */
+.header {position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255,255,255,0.2); z-index: 10000;}
+.header .logo {padding: 15px; font-size:25px; color: #fff; text-align: center;}
+
+
+/* 페이지 앵커 */
+#pageMenu { position: fixed; right:40px; top:50%; transform: translate(0,-50%); width: 80px; z-index: 999; }
+#pageMenu li { margin: 5px 0; }
+#pageMenu a { display: block; width: 100%; position: relative; text-align: right; padding-right: 20px; }
+#pageMenu a span { color: #fff; font-size: 0px; font-family: 'Montserrat'; font-weight: bold; line-height: 30px; display: inline-block; }
+#pageMenu.on a span { color: #fff; }
+#pageMenu a i {display: inline-block; position: absolute; width: 8px; height: 8px; background: #d5d5d5; border-radius: 50%; top: 50%; right: 0; transform: translateY(-50%); }
+#pageMenu a i::before {content: ''; display: inline-block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 17px; height: 17px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; opacity: 0; transition: all 0.3s;}
+#pageMenu li.active a span { font-size: 13px;}
+#pageMenu li.active a i::before {content: ''; display: inline-block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 17px; height: 17px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; opacity: 1;}
+
+/* 페이지 */
+#section1 {background-color: #000f63;}
+#section2 {background-color: #250066;}
+#section3 {background-color: #43004e;}
+#section4 {background-color: #630021}
+#section5 {background-color: #5f0600}
+#section6 {background-color: black;}
+.section .section-inner {display: flex; justify-content: center; align-items: center; height: 100%; color: #fff;}
+#section6 .section-inner {min-height:300px;}
+
+/* 애니메이션 */
+.section.active .ani-01 {animation: fadeLeft 0.5s 0.35s both;}
+.section.active .ani-02 {animation: fadeLeft 0.5s 0.55s both;}
+.section.active .ani-03 i {animation: fadeUp 0.4s 0.2s both}
+
+/*------------------------------------------------------------------------*/
+/*새로 추가해 본 거*/
+.container {
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 헤더 스타일 */
+.header2 {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 메인 영역 (콘텐츠 + 사이드바) */
+.main2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* 메인 콘텐츠 */
+.content2 {
+    width: 70%;
+    background-color: lightgray;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 사이드바 */
+.sidebar2 {
+    width: 30%;
+    background-color: lightblue;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 푸터 스타일 */
+.footer2 {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+/*------------------------------------------------------------------------*/
+
+@keyframes fadeIn {
+	0%{ opacity: 0;}
+	100%{ opacity: 1;}
+}
+@keyframes fadeUp {
+	0%{transform:translateY(80px); opacity: 0;}
+	100%{transform:translateY(0); opacity: 1;}
+}
+@keyframes fadeLeft {
+	0%{transform:translateX(-80px); opacity: 0;}
+	100%{transform:translateX(0); opacity: 1;}
+}
+@keyframes fadeRight {
+	0%{transform:translateX(80px); opacity: 0;}
+	100%{transform:translateX(0); opacity: 1;}
+}
+@keyframes up {
+	0%{transform:translateY(120%);}
+	100%{transform:translateY(0);}
+}
+@keyframes moveTxt {
+	0%{transform:translateX(-20px); opacity: 0;}
+	100%{transform:translateX(0); opacity: 1;}
+}
+
+.fp-controlArrow.fp-prev {left: 120px;}
+.fp-controlArrow.fp-next {right: 120px;}
