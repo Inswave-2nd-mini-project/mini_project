@@ -54,28 +54,85 @@ document.addEventListener('DOMContentLoaded', function () {
 // 두번째 페이지 js 코드
 
 // 세번째 Js코드
+// async function getServiceKey() {
+// 	const res = await fetch('../util/config.json');
+// 	const config = await res.json();
+// 	return config.licenseKey;
+//   }
+//   async function fetchData() {
+// 	const serviceKey = await getServiceKey();
+  
+// 	const params = new URLSearchParams({
+// 	//   serviceKey: encodeURIComponent(serviceKey),
+// 	serviceKey,
+// 	  returnType: 'json',
+// 	  sidoName: '서울',
+// 	  numOfRows: '1000',
+// 	  pageNo: '1',
+// 	  searchDate: '2025-03-20'
+// 	});
+	
+// 	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth'; // 정확한 URL
+  
+// 	const response = await fetch(`${url}?${params}`);
+// 	const data = await response.json();
+// 	console.log('미세먼지 데이터:', data);
+//   } 
+//   fetchData().catch(console.error);
+
+
+let currentData;
+let lastWeekData;
+
 async function getServiceKey() {
 	const res = await fetch('../util/config.json');
 	const config = await res.json();
 	return config.licenseKey;
-  }
-  
-  async function fetchData() {
+}
+
+function formatDate(date) {
+	// YYYY-MM-DD 형식으로 변환
+	return date.toISOString().split('T')[0];
+}
+
+async function fetchDustForecast(dateStr) {
 	const serviceKey = await getServiceKey();
-  
+
 	const params = new URLSearchParams({
-	//   serviceKey: encodeURIComponent(serviceKey),
-	serviceKey,
-	  returnType: 'json',
-	  sidoName: '서울',
-	  numOfRows: '1000',
-	  pageNo: '1',
-	  searchDate: '2022-05-20'
+		serviceKey,
+		returnType: 'json',
+		sidoName: '서울',
+		numOfRows: '1000',
+		pageNo: '1',
+		searchDate: dateStr
 	});
-  
-	const url = 'http://apis.data.go.http://apis.data.go.kr/B552584/MinuDustFrcstDspthSvc/getMinuDustFrcstDspth50Over/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'; // 정확한 URL
-  
-	const response = await fetch(`${url}?${params}`);
-	const data = await response.json();
-	console.log('미세먼지 데이터:', data);
-  } fetchData().catch(console.error);
+
+	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth';
+
+	try {
+		const response = await fetch(`${url}?${params}`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error(`Error fetching data for ${dateStr}:`, error);
+		return null;
+	}
+}
+
+async function fetchData() {
+	const today = new Date();
+	const lastWeek = new Date();
+	lastWeek.setDate(today.getDate() - 7);
+	const todayStr = formatDate(today);
+	const lastWeekStr = formatDate(lastWeek);
+
+	console.log('Fetching data for this week:', todayStr);
+	currentData = await fetchDustForecast(todayStr);
+	console.log('이번 주 미세먼지 데이터:', currentData);
+
+	console.log('Fetching data for last week:', lastWeekStr);
+	lastWeekData = await fetchDustForecast(lastWeekStr);
+	console.log('저번 주 미세먼지 데이터:', lastWeekData);
+}
+
+fetchData().catch(console.error);
