@@ -53,8 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 // 두번째 페이지 js 코드
 
-// 세번째 Js코드	  
-
+// 세번째 Js코드
 async function getServiceKey() {
 	const res = await fetch('../util/config.json');
 	const config = await res.json();
@@ -66,7 +65,7 @@ async function getServiceKey() {
   
 	const params = new URLSearchParams({
 	//   serviceKey: encodeURIComponent(serviceKey),
-	  serviceKey, // key, value가 같으면 둘 중 하나만 써도 됨
+	serviceKey,
 	  returnType: 'json',
 	  sidoName: '서울',
 	  numOfRows: '1000',
@@ -74,12 +73,9 @@ async function getServiceKey() {
 	  searchDate: '2022-05-20'
 	});
   
-	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'; // 정확한 URL
+	const url = 'http://apis.data.go.http://apis.data.go.kr/B552584/MinuDustFrcstDspthSvc/getMinuDustFrcstDspth50Over/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'; // 정확한 URL
   
 	const response = await fetch(`${url}?${params}`);
 	const data = await response.json();
 	console.log('미세먼지 데이터:', data);
-  }
-  
-  fetchData().catch(console.error);
-  
+  } fetchData().catch(console.error);
