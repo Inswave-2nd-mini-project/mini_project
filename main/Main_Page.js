@@ -53,27 +53,33 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 // 두번째 페이지 js 코드
 
-// 세번째 Js코드
-const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty';
-const serviceKey = 'EEbGWW3rlvrQtiEStFYZEv/mosDPSlQMONoeafgPUDteX/qP1q3nZQr/ZosOGgVG1xj7QS+0AZFrGF7ePkycWg==';
+// 세번째 Js코드	  
 
-const params = new URLSearchParams({
-	serviceKey: serviceKey,
-	returnType: 'json',
-	sidoName: '서울',
-	numOfRows: '100',
-	pageNo: '1'
-  });
+async function getServiceKey() {
+	const res = await fetch('../util/config.json');
+	const config = await res.json();
+	return config.licenseKey;
+  }
   
-  fetch(`${url}?${params}`)
-	.then(response => {
-	  if (!response.ok) throw new Error('Network response was not ok');
-	  return response.json();
-	})
-	.then(data => {
-	  console.log('미세먼지 데이터:', data);
-	})
-	.catch(error => {
-	  console.error('API 호출 오류:', error);
+  async function fetchData() {
+	const serviceKey = await getServiceKey();
+  
+	const params = new URLSearchParams({
+	//   serviceKey: encodeURIComponent(serviceKey),
+	  serviceKey, // key, value가 같으면 둘 중 하나만 써도 됨
+	  returnType: 'json',
+	  sidoName: '서울',
+	  numOfRows: '1000',
+	  pageNo: '1',
+	  searchDate: '2022-05-20'
 	});
-	  
+  
+	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'; // 정확한 URL
+  
+	const response = await fetch(`${url}?${params}`);
+	const data = await response.json();
+	console.log('미세먼지 데이터:', data);
+  }
+  
+  fetchData().catch(console.error);
+  
