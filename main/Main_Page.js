@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		"../BSH1/index.html",
 		"../profile_01/profile_jihun.html",
 		"../ljh/cardpage.html",
-		"../profile_01/profile_hyunwoo.html"
+		"../YKW/mypage.html"
 	];
   
 	// 이미지 클릭 시 해당 html로 이동
@@ -54,33 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // 두번째 페이지 js 코드
 
 // 세번째 Js코드
-// async function getServiceKey() {
-// 	const res = await fetch('../util/config.json');
-// 	const config = await res.json();
-// 	return config.licenseKey;
-//   }
-//   async function fetchData() {
-// 	const serviceKey = await getServiceKey();
-  
-// 	const params = new URLSearchParams({
-// 	//   serviceKey: encodeURIComponent(serviceKey),
-// 	serviceKey,
-// 	  returnType: 'json',
-// 	  sidoName: '서울',
-// 	  numOfRows: '1000',
-// 	  pageNo: '1',
-// 	  searchDate: '2025-03-20'
-// 	});
-	
-// 	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth'; // 정확한 URL
-  
-// 	const response = await fetch(`${url}?${params}`);
-// 	const data = await response.json();
-// 	console.log('미세먼지 데이터:', data);
-//   } 
-//   fetchData().catch(console.error);
-
-
 let currentData;
 let lastWeekData;
 
@@ -122,7 +95,7 @@ async function fetchDustForecast(dateStr) {
 async function fetchData() {
 	const today = new Date();
 	const lastWeek = new Date();
-	lastWeek.setDate(today.getDate() - 7);
+	lastWeek.setDate(today.getDate() - 50);
 	const todayStr = formatDate(today);
 	const lastWeekStr = formatDate(lastWeek);
 
@@ -132,7 +105,7 @@ async function fetchData() {
 
 	console.log('Fetching data for last week:', lastWeekStr);
 	lastWeekData = await fetchDustForecast(lastWeekStr);
-	console.log('저번 주 미세먼지 데이터:', lastWeekData);
+	console.log('저번 주 미세먼지 데이터:', '2020-11-09');
 }
 
 fetchData().catch(console.error);
