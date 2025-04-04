@@ -1,0 +1,14 @@
+#page4 {
+    background-color: #fff9c4;
+}
+
+#storage-input {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#storage-output {
+    margin-top: 20px;
+    font-size: 18px;
+}
