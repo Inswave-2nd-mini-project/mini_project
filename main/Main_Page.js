@@ -68,7 +68,7 @@ prev.onclick = function(){
 		"../BSH1/index.html", 					//칸반	
 		"../profile_01/profile_jihun.html",		//보드
 		"../ljh/cardpage.html",					//지도
-		"../YKW/mypage.html",					//차트
+		"../chart/dustChart.html",				//차트
 		"../login/login.html"
 	];
   
@@ -80,89 +80,3 @@ prev.onclick = function(){
 			}
 		}
 	});
-// 	// 캐러셀 버튼: 이미지 순서 변경
-// 	document.getElementById('prev-btn').addEventListener('click', () => {
-// 		const first = container.firstElementChild;
-// 		container.appendChild(first);
-// 	});
-
-// 	document.getElementById('next-btn').addEventListener('click', () => {
-// 		const last = container.lastElementChild;
-// 		container.insertBefore(last, container.firstElementChild);
-// 	});
-
-	
-
-
-// // 미세먼지 코드
-// let currentWeekData = [];
-// let lastWeekData = [];
-
-// async function getServiceKey() {
-// 	const res = await fetch('../util/config.json');
-// 	const config = await res.json();
-// 	return config.licenseKey;
-// }
-
-// function formatDate(date) {
-// 	return date.toISOString().split('T')[0];
-// }
-
-// // 해당 날짜에 대한 미세먼지 예보 데이터를 가져옴
-// async function fetchDustForecast(dateStr, serviceKey) {
-// 	const params = new URLSearchParams({
-// 		serviceKey,
-// 		returnType: 'json',
-// 		sidoName: '서울',
-// 		numOfRows: '1000',
-// 		pageNo: '1',
-// 		searchDate: dateStr
-// 	});
-
-// 	const url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth';
-
-// 	try {
-// 		const response = await fetch(`${url}?${params}`);
-// 		const data = await response.json();
-// 		return data;
-// 	} catch (error) {
-// 		console.error(`Error fetching data for ${dateStr}:`, error);
-// 		return null;
-// 	}
-// }
-
-// // 7일치 데이터를 모으는 함수
-// async function fetch7DaysData() {
-// 	const serviceKey = await getServiceKey();
-// 	const allData = new Map(); // 중복 방지용 (date 기준)
-// 	const startDate = new Date();
-// 	startDate.setDate(startDate.getDate() - 7);
-// 	for (let i = 0; i < 14; i++) {
-// 		const date = new Date(startDate);
-// 		date.setDate(date.getDate() + i);
-// 		const formattedDate = formatDate(date);
-// 		console.log(`미세먼지 데이터 불러오는중... ${formattedDate}`);
-
-// 		const result = await fetchDustForecast(formattedDate, serviceKey);
-// 		if (result?.response?.body?.items) {
-// 			for (const item of result.response.body.items) {
-// 				const forecastDate = item.frcstOneDt; // 예보일자
-// 				if (!allData.has(forecastDate)) {
-// 					allData.set(forecastDate, item);
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	// 날짜순 정렬
-// 	return Array.from(allData.values()).sort((a, b) => a.frcstOneDt.localeCompare(b.frcstOneDt));
-// }
-
-// async function fetchData() {
-// 	console.log('미세먼지 데이터 수집 중...');
-// 	currentWeekData = await fetch7DaysData();
-// 	console.log('미세먼지 데이터:', currentWeekData);
-// }
-
-// fetchData().catch(console.error);
-

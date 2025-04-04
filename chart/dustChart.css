@@ -1,0 +1,12 @@
+body{
+    background-image: 
+        linear-gradient(
+            to top right, #8B5CF6, #EC4899
+        );
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
