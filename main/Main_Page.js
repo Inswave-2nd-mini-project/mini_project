@@ -12,7 +12,7 @@
     let next = document.getElementById('next');
     let prev = document.getElementById('prev');
     
-    let active = 0;
+    let active = 4;
 	function loadShow(){
 		let stt = 0;
 		// Reset all items
