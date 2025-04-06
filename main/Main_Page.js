@@ -66,10 +66,10 @@ prev.onclick = function(){
 // 	//  이동할 html 링크
 	const links = [
 		"../BSH1/index.html", 					//칸반	
-		"../profile_01/profile_jihun.html",		//보드
+		"../board/board.html",					//보드
 		"../ljh/cardpage.html",					//지도
 		"../chart/dustChart.html",				//차트
-		"../login/login.html"
+		"../login/login.html"					//조 소개(?)
 	];
   
 	// 이미지 클릭 시 해당 html로 이동
