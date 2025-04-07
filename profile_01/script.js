@@ -43,10 +43,6 @@ buttons.forEach((btn) => {
   }, { threshold: 0.5 });
   observer.observe(section2);
 
-  // 댓글 저장/불러오기 이벤트 연결
-  document.getElementById("saveBtn").addEventListener("click", saveComment);
-  document.getElementById("loadBtn").addEventListener("click", displayComments);
-
   console.log('FullPage initialized');
 });
 
@@ -163,6 +159,11 @@ for (var i = 0; i < aImgElements.length; i++) {
     }
   });
 }
+
+
+  // 댓글 저장/불러오기 이벤트 연결
+  document.getElementById("saveBtn").addEventListener("click", saveComment);
+  document.getElementById("loadBtn").addEventListener("click", displayComments);
 
 /* ========== 댓글 저장/불러오기 (리스트 형태) ========== */
 function saveComment() {
