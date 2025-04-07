@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Me!</title>
+
+    <link rel="stylesheet" href="/ykw2/ykw.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/navi/navi.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <!------------------------------------------ 공통 nav ------------------------------------------------>
+    <div id="navi-container"></div>
+    <!-------------------------------------- 공통 nav END ------------------------------------------------>
+
+
+
+    <!------------------------------------------ 개인 nav ------------------------------------------------>
+    <div class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav-logo" id="nav-logo">
+                    <i class="bi bi-code-slash"></i>
+                </a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <!-- <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li> -->
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#comment" class="nav-link">comment</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </div>
+    <!---------------------------------------- 개인 nav END------------------------------------------------>
+
+
+    <!----------------------------------------------------------------------------------------------------->
+    <!------------------------------------- 메인 contents page -------------------------------------------->
+    <main class="l-main">
+
+
+        <!--------------------------------------- landing page ------------------------------------------------>
+        <section class="home bd-grid" id="home">
+            <div class="home-data">
+                <h1 class="home-title">
+                    <span class="home-myname">My name is</span><br>
+                    Yeo <span class="home-title-color">Kyungwon</span>
+                </h1>
+                <h2>Web Developer</h2>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <h3>@ Inswave Systems</h3>
+            </div>
+        </section>
+        <!------------------------------------- landing page END----------------------------------------------->
+
+
+
+        <!----------------------------------------- About Me--------------------------------------------------->
+        <section class="about section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container card-wrapper">
+
+                <!-- Profile 카드 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296364iCE1B2A9A29E80CDA/image-size/large?v=v2&px=999"
+                        alt="profile">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Profile</span>
+                        <p class="profile-p">#나이 &nbsp; #학교</p>
+                    </div>
+                    <div class="card-reveal">
+                        <h2 class="profile-header">Profile</h2>
+                        <img class="profile-img"
+                            src="https://velog.velcdn.com/images/ykw1230/post/b9dc7bc4-790d-4582-8436-441326b0134f/image.png"
+                            alt="개인사진">
+                        <p><i class="fa fa-birthday-cake"></i>&nbsp; 1997. 12. 30</p>
+                        <p><i class="fa fa-mortar-board"></i>&nbsp; 동국대학교 정보통신공학과</p>
+                        <p><i class="fa fa-home"></i>&nbsp; 경기도 화성시</p>
+                    </div>
+                </div>
+
+                <!-- Personality 카드 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296368i7170CAE2B0B78930/image-size/large?v=v2&px=999"
+                        alt="personality">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Personality</span>
+                        <p class="personality-p">#MBTI &nbsp; #성격</p>
+                    </div>
+                    <div class="card-reveal">
+                        <h2 class="personality-header">Personality</h2>
+                        <div class="mbti-chart-container">
+                            <div class="mbti-chart">
+                                <div class="circle-chart chart-i">I</div>
+                                <span class="mbti-label">내향적</span>
+                            </div>
+                            <div class="mbti-chart">
+                                <div class="circle-chart chart-s">S</div>
+                                <span class="mbti-label">감각적</span>
+                            </div>
+                            <div class="mbti-chart">
+                                <div class="circle-chart chart-t">T</div>
+                                <span class="mbti-label">사고적</span>
+                            </div>
+                            <div class="mbti-chart">
+                                <div class="circle-chart chart-p">P</div>
+                                <span class="mbti-label">인식적</span>
+                            </div>
+                        </div>
+                        <h3>ISTP의 특징</h3>
+                        <p><i class="fa fa-user-plus"></i>&nbsp;실용적이다</p>
+                        <p><i class="fa fa-user-plus"></i>&nbsp;차분하고 느긋하다</p>
+                        <p><i class="fa fa-user-plus"></i>&nbsp;현실적이다</p>
+                        <p><i class="fa fa-user-plus"></i>&nbsp;위기대처 능력이 뛰어나다</p>
+                    </div>
+                </div>
+
+                <!-- Goal 카드 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://r1.community.samsung.com/t5/image/serverpage/image-id/6296369iFCC93751233D6732/image-size/large?v=v2&px=999"
+                            alt="favorite">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Goal</span>
+                        <p class="goal-p">#올해 목표 &nbsp; #나의 꿈</p>
+                    </div>
+                    <div class="card-reveal">
+                        <h2 class="goal-header">Goal</h2>
+                        <h3>올해 목표</h3>
+                        <h3>나의 꿈</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--------------------------------------- About Me END ------------------------------------------------->
+
+
+
+        <!------------------------------------------ Favorites -------------------------------------------------->
+        <section class="favorites section" id="favorites">
+            <h2 class="section-title">Favorites</h2>
+            <div class="favorites-interactive-container">
+                <div class="options">
+
+                    <!-- 선택된 상태 -->
+                    <div class="option active"
+                        style="background-image: url(https://i.namu.wiki/i/sNO6BOquMUGa0IjcW3VAh_NabAcx393bO6KiQWBcFiYiGx5L_2d3GsajNaM4btzh1CfvuXkuhK96IoJk1oRoRw.webp); width:auto">
+                        <div class="shadow"></div>
+
+                        <!-- hover 시 보여질 내용 -->
+                        <div class="option-hover-content">
+                            <h4>&#127916; M<br>o<br>v<br>i<br>e</h4>
+                            <!-- <p>좋아하는 음식이 뭘까요?</p> -->
+                        </div>
+
+                        <!-- 클릭 시 보여질 내용 -->
+                        <div class="option-active-content">
+                            <h2>나의 최애 영화 : <더 킹></h2>
+                            <iframe width="600" height="400" src="https://www.youtube.com/embed/qcfctrslOlM" title="[더 킹] 메인 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="label">
+                            <div class="icon"><i class="fa-solid fa-film"></i></div>
+                            <div class="info">
+                                <div class="main">Film</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 두 번째 카드 -->
+                    <div class="option"
+                        style="background-image: url(https://i.ytimg.com/vi/KEBIBnC4NQY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCswwK1r1sAQs9vSu8ToMVfHyCGXg); width:auto">
+                        <div class="shadow"></div>
+
+                        <div class="option-hover-content">
+                            <h4>&#127925; M<br>u<br>s<br>i<br>c</h4>
+                        </div>
+
+                        <div class="option-active-content">
+                            <div class="option-active-content">
+                                <div class="player" style="width: fit-content;">
+                                    <div class="cover">
+                                        <img src="https://image.bugsm.co.kr/album/images/500/40839/4083984.jpg" alt="music">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">Drowing</div>
+                                        <div class="singer">WOODZ</div>
+                                    </div>
+                                    <div class="volume-box">
+                                        <span class="volume-down"><i class="material-icons">remove</i></span>
+                                        <input type="range" class="volume-range" step="1" value="80" min="0" max="100"
+                                            oninput="music.volume = this.value/100">
+                                        <span class="volume-up"><i class="material-icons">add</i></span>
+                                    </div>
+                                    <div class="btn-box">
+                                        <i class="material-icons repeat" onclick="handleRepeat()">repeat</i>
+                                        <i class="material-icons favorite active" onclick="handleFavorite()">favorite</i>
+                                        <i class="material-icons volume" onclick="handleVolume()">volume_up</i>
+                                    </div>
+                                    <div class="music-box">
+                                        <input type="range" step="1" class="seekbar" value="0" min="0" max="100" oninput="handleSeekBar()">
+                            
+                                        <audio class="music-element">
+                                            <source src="/ykw2/song.mp3" type="audio/mp3">
+                                        </audio>
+                                        <span class="current-time">0:00</span><span class="duration">0:00</span>
+                                        <span class="play" onclick="handlePlay()">
+                                            <i class="material-icons">play_arrow</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="label">
+                            <div class="icon"><i class="fa-solid fa-headphones"></i></div>
+                            <div class="info">
+                                <div class="main">Music</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 세 번째 카드 -->
+                    <div class="option"
+                        style="--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);">
+                        <div class="shadow"></div>
+
+                        <div class="option-hover-content">
+                            <h4>&#127829; F<br>o<br>o<br>d</h4>                        
+                        </div>
+
+                        <div class="option-active-content">
+                            <p>음식 넣고... 최애맛집 지도...</p>
+                        </div>
+
+                        <div class="label">
+                            <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+                            <div class="info">
+                                <div class="main">Food</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 네 번째 카드 -->
+                    <div class="option"
+                        style="--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);">
+                        <div class="shadow"></div>
+
+                        <div class="option-hover-content">
+                            <h4>&#127939; S<br>p<br>o<br>r<br>t<br>s</h4>
+                        </div>
+
+                        <div class="option-active-content">
+                            <h3>💧 Rainy Mood</h3>
+                            <p>비 오는 날 창가에서 음악 듣기</p>
+                        </div>
+
+                        <div class="label">
+                            <div class="icon"><i class="fa-solid fa-futbol"></i></div>
+                            <div class="info">
+                                <div class="main">Sports</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 다섯 번째 카드 -->
+                    <div class="option"
+                        style="--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);">
+                        <div class="shadow"></div>
+
+                        <div class="option-hover-content">
+                            <h4>&#127918; G<br>a<br>m<br>e</h4>
+                        </div>
+
+                        <div class="option-active-content">
+                            <h3>🌞 Sunshine</h3>
+                            <p>햇살 아래 걷는 기분 좋아해요</p>
+                        </div>
+
+                        <div class="label">
+                            <div class="icon"><i class="fa-solid fa-gamepad"></i></div>
+                            <div class="info">
+                                <div class="main">Game</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--------------------------------------- Favorites END ------------------------------------------------->
+
+
+
+        <!--------------------------------------------- Skill ----------------------------------------------------->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills-container bd-grid">
+                <div>
+                    <h2 class="skills-subtitle">Professional Skills</h2>
+                    <p class="skills-text">I love to think outside the box and bring unique ideas to life through
+                        design, I have proficiency in HTML, CSS, and JavaScript, that ensure that my designs are not
+                        only beautiful but also functional. I prioritize the needs and preferences of users, conducting
+                        research to understand their behaviors and preferences.</p>
+
+                    <div class="skills-data">
+                        <div class="skills-names">
+                            <i class='bx bxl-html5 skills-icon'></i>
+                            <span class="skills-name">HTML5</span>
+                        </div>
+
+                        <div>
+                            <span class="skills-percentage">95%</span>
+                        </div>
+
+                        <div class="skills-bar skills-html"></div>
+                    </div>
+
+                    <div class="skills-data">
+                        <div class="skills-names">
+                            <i class='bx bxl-css3 skills-icon'></i>
+                            <span class="skills-name">CSS3</span>
+                        </div>
+
+                        <div>
+                            <span class="skills-percentage">85%</span>
+                        </div>
+
+                        <div class="skills-bar skills-css"></div>
+                    </div>
+
+                    <div class="skills-data">
+                        <div class="skills-names">
+                            <i class='bx bxl-javascript skills-icon'></i>
+                            <span class="skills-name">JAVASCRIPT</span>
+                        </div>
+
+                        <div>
+                            <span class="skills-percentage">65%</span>
+                        </div>
+
+                        <div class="skills-bar skills-js"></div>
+                    </div>
+
+                    <div class="skills-data">
+                        <div class="skills-names">
+                            <i class='bx bxs-paint skills-icon'></i>
+                            <span class="skills-name">UX/UI</span>
+                        </div>
+
+                        <div>
+                            <span class="skills-percentage">85%</span>
+                        </div>
+
+                        <div class="skills-bar skills-ux"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://i.postimg.cc/52LWbPyt/work3.jpg" alt="image" class="skills-img">
+                </div>
+            </div>
+        </section>
+        <!------------------------------------------ Skill END----------------------------------------------------->
+
+
+        <!------------------------------------------- project -------------------------------------------------->
+        <section class="project section" id="project">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="project-container bd-grid">
+                
+                
+                <div class="project-img">
+                    <a href="https://github.com/kyungwon2won2/be05-fin-team06-OutPick" target="_blank">
+                        <img src="https://smart-wholesaler-248.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2af36e53-9c8d-47e7-8147-de80b183d0c2%2F9d8e509d-c5c0-4a72-bd57-25881ebc1311%2F%25EC%2595%2584%25EC%259B%2583%25ED%2594%25BD_%25EB%25A1%259C%25EA%25B3%25A0.jpg?table=block&id=90df75f9-e5f6-49a7-b26e-e422d04a5ff2&spaceId=2af36e53-9c8d-47e7-8147-de80b183d0c2&width=1420&userId=&cache=v2" alt="image">
+                    </a>                
+                </div>
+                
+                <div class="project-img">
+                    <a href="https://github.com/kyungwon2won2/be05-3rd-solbangul-Miracle_in_cell_No.5" target="_blank">
+                        <img src="https://smart-wholesaler-248.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2af36e53-9c8d-47e7-8147-de80b183d0c2%2F305eb13f-4827-4a14-ab8e-b2e370851a3a%2F5%25EB%25B2%2588%25EB%25B0%25A9%25EC%259D%2598_%25EC%2584%25A0%25EB%25AC%25BC.png?table=block&id=c5b5aaf6-4a07-455a-acb1-45219e389189&spaceId=2af36e53-9c8d-47e7-8147-de80b183d0c2&width=1420&userId=&cache=v2" alt="image">
+                    </a>                
+                </div>
+
+                <div class="project-img">
+                    <a href="https://github.com/kyungwon2won2/be05-1st-3Team-silver-work" target="_blank">
+                        <img src="https://smart-wholesaler-248.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2af36e53-9c8d-47e7-8147-de80b183d0c2%2Fb7e1a470-34be-4472-a150-75281ef78dca%2F%25EC%258B%25A4%25EB%25B2%2584%25EC%259B%258C%25ED%2581%25AC.png?table=block&id=fd0876b7-820d-4ee9-b5e8-8e8bac243d29&spaceId=2af36e53-9c8d-47e7-8147-de80b183d0c2&width=1420&userId=&cache=v2" alt="image">
+                    </a>                
+                </div>
+
+                <div class="project-img">
+                    <a href="https://github.com/capstone-secure-system" target="_blank">
+                        <img src="https://smart-wholesaler-248.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2af36e53-9c8d-47e7-8147-de80b183d0c2%2Fd9d608f9-56b5-4e70-8ace-7d9e8be5f8f9%2Fimage.png?table=block&id=d648e221-eada-4ab8-83d7-b5226a2e47ba&spaceId=2af36e53-9c8d-47e7-8147-de80b183d0c2&width=1420&userId=&cache=v2" alt="image">
+                    </a>                
+                </div>
+
+                <div class="project-img">
+                    <a href="https://github.com/kyungwon2won2/rasachatbot" target="_blank">
+                        <img src="https://github.com/kyungwon2won2/rasachatbot/raw/main/image.png" alt="image">
+                    </a>                
+                </div>
+
+                <div class="project-img">
+                    <a href="https://github.com/kyungwon2won2/OS_Linux-Project" target="_blank">
+                        <img src="https://smart-wholesaler-248.notion.site/image/attachment%3A81309438-d55d-4fa7-ba78-b4714b9f66d7%3Aimage.png?table=block&id=1cebd40e-eca9-805f-a85f-dc23993eaf1b&spaceId=2af36e53-9c8d-47e7-8147-de80b183d0c2&width=960&userId=&cache=v2" alt="image">
+                    </a>                
+                </div>
+            </div>
+        </section>
+        <!------------------------------------------ project END -------------------------------------------------->
+
+
+
+        <!------------------------------------------- comment -------------------------------------------------->
+        <section class="comment section" id="comment">
+            <h2 class="section-title">Comment</h2>
+
+            <div class="comment-container bd-grid">
+                <form action="" class="comment-form">
+                    <input type="text" class="comment-input" placeholder="이름">
+                    <textarea name="cmt_content" id="cmt_content" cols="0" rows="10" class="comment-input"
+                        placeholder="내용을 입력해주세요"></textarea>
+
+                    <input type="submit" value="저장" class="comment-button button">
+                </form>
+            </div>
+        </section>
+        <!----------------------------------------- comment END ----------------------------------------------->
+
+
+    </main>
+    <!------------------------------------ 메인 contents page END------------------------------------------>
+    <!----------------------------------------------------------------------------------------------------->
+
+
+
+    <!--------------------------------------- 사이드 SNS 버튼 --------------------------------------------->
+    <div class="custom-fab">
+        <button class="main-btn"><i class="fa fa-comments"></i></button>
+        <ul class="fab-links">
+            <li><a target="_blank" href="https://www.instagram.com/kyung__won_" class="fab instagram"><i
+                        class="fa-brands fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://github.com/kyungwon2won2" class="fab github"><i
+                        class="fa-brands fa-github"></i></a></li>
+            <li><a target="_blank" href="https://velog.io/@ykw1230" class="fab velog"><i class="fa fa-bookmark"></i></a>
+            </li>
+            <li><a target="_blank" onclick="phone()" class="fab contact"><i class="fa fa-phone"></i></a></li>
+        </ul>
+    </div>
+    <!--------------------------------------- 사이드 SNS END --------------------------------------------->
+
+
+
+    <footer class="footer">
+        <p><i class="bi bi-universal-access"></i> 나의 개인페이지 만들기</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/ykw2/ykw.js"></script>
+
+</body>
+
+</html>
