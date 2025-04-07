@@ -72,73 +72,80 @@ async function fetchDustForecastTextLastNDays(days = 7) {
 	return result.reverse(); // 최신 날짜 우선
 }
 
-// 🏁 전체 실행 함수
 async function fetchData() {
-	console.log('📦 미세먼지 텍스트 예보 수집 중...');
+  console.log('📦 미세먼지 텍스트 예보 수집 중...');
 
-	let weeklyTextData;
+  let weeklyTextData;
 
-	try {
-		weeklyTextData = await fetchDustForecastTextLastNDays();
-		console.log('✅ 수집 완료 (텍스트 예보):');
-		console.dir(weeklyTextData, { depth: null });
-	} catch (err) {
-		console.error('⚠️ 수집 실패:', err);
-		return;
-	}
+  try {
+    weeklyTextData = await fetchDustForecastTextLastNDays();
+    console.log('✅ 수집 완료 (텍스트 예보):');
+    console.dir(weeklyTextData, { depth: null });
+  } catch (err) {
+    console.error('⚠️ 수집 실패:', err);
+    return;
+  }
 
-	const levelMap = {
-		"매우나쁨": 1,
-		"나쁨": 2,
-		"보통": 3,
-		"좋음": 4
-	};
+  const levelMap = {
+    "매우나쁨": 1,
+    "나쁨": 2,
+    "보통": 3,
+    "좋음": 4
+  };
 
-	const dates = weeklyTextData.map(item => {
-		const d = new Date(item.date);
-		return `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-	});
+  const dates = weeklyTextData.map(item => {
+    const d = new Date(item.date);
+    return `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+  });
 
-	const levels = weeklyTextData.map(item => {
-		const gradeStr = item.informGrade;
-		const match = gradeStr.match(/서울\s*:\s*(좋음|보통|나쁨|매우나쁨)/);
-		const levelText = match ? match[1] : "보통"; // 기본값은 '보통'
-		return levelMap[levelText] || 3;
-	});
+  const levels = weeklyTextData.map(item => {
+    const gradeStr = item.informGrade;
+    const match = gradeStr.match(/서울\s*:\s*(좋음|보통|나쁨|매우나쁨)/);
+    const levelText = match ? match[1] : "보통"; // 기본값은 '보통'
+    return levelMap[levelText] || 3;
+  });
 
-	// 차트 업데이트
-	chart.updateOptions({
-		xaxis: {
-			categories: dates
-		}
-	});
-	chart.updateSeries([{
-		name: "서울 미세먼지 등급",
-		data: levels
-	}]);
+  // 차트 업데이트
+  chart.updateOptions({
+    xaxis: {
+      categories: dates
+    }
+  });
+  chart.updateSeries([{
+    name: "서울 미세먼지 등급",
+    data: levels
+  }]);
 }
 
-fetchData();
-
-// 차트
+// 차트 옵션
 var options = {
   chart: {
     height: 300,
     type: "area"
   },
   series: [{
-    
+    name: "서울 미세먼지 등급",
+    data: [] // 초기 데이터
   }],
   xaxis: {
-    categories: [
-  ]},
+    categories: []
+  },
   yaxis: {
     tickAmount: 3,
     min: 1,
     max: 4,
     labels: {
+      formatter: function (val) {
+        const levels = {
+          1: "매우나쁨",
+          2: "나쁨",
+          3: "보통",
+          4: "좋음"
+        };
+        return levels[Math.round(val)] || "";
+      },
       style: {
-        colors: ['#000'], // 원하는 경우 색상 조절 가능
+        colors: ['#000'],
         fontSize: '14px'
       }
     }
@@ -157,9 +164,13 @@ var options = {
     }
   },
   dataLabels: {
-    enabled: false // 차트 안 숫자도 안 보이게
+    enabled: false
   }
 };
 
+// 차트 렌더링
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+// 데이터 가져오기
+fetchData();
