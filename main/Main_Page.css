@@ -1,8 +1,8 @@
 body{
-    background-image: 
-        linear-gradient(
-            to top right, #ee99c4, #8473e4
-        );
+        background-image: 
+            linear-gradient(
+                to top right, #ee99c4, #8473e4
+            );
     min-height: 100vh;
     margin: 0;
     display: flex;
