@@ -1,3 +1,15 @@
+body{
+  background-image: 
+      linear-gradient(
+          to top right, #ee99c4, #8473e4
+      );
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -18,7 +30,7 @@ table {
   
   #board-search .search-window {
     padding: 15px 0;
-    background-color: #f9f7f9;
+    /* background-color: #f9f7f9; */
   }
   #board-search .search-window .search-wrap {
     position: relative;
