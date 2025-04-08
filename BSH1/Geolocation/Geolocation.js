@@ -58,43 +58,105 @@ function getClientPosition() {
 
 
 
-function getWeatherData(latitude, longitude){
-  $.ajax({
-    type: "GET",
-    url: "https://thingproxy.freeboard.io/fetch/https://api.openweathermap.org/data/2.5/forecast/daily?APPID=9b4bbf30228eb8528d36e79d05da1fac&lat=" + latitude + "&lon=" + longitude + "&units=metric&cnt=5",
-    cache: true,
-    headers: {
-      "Access-Control-Allow-Headers": "x-requested-with"
-    },
-    success: function(forecast){
-      globalForecast = forecast;
-      updateForecast(forecast);
+async function getWeatherData(latitude, longitude) {
+  const url = `https://thingproxy.freeboard.io/fetch/https://api.openweathermap.org/data/2.5/forecast/daily?APPID=9b4bbf30228eb8528d36e79d05da1fac&lat=${latitude}&lon=${longitude}&units=metric&cnt=5`;
 
-      // Stops Refresh button's spinning animation
-      $("#refreshButton").html("<i class='fa fa-refresh fa-fw'></i> Refresh");
-    },
-    error: function(error){
-      console.log("Error with ajax: "+ error);
-    }
-  });
-}
-
-
-function updateForecast(latitude, longitude) {
-    console.log("날씨 API 호출, 위도:", latitude, "경도:", longitude);
-    
-    $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/forecast/daily?APPID=1d64e23d17960d480fce098907c06bf08&lat=" + latitude + "&lon=" + longitude + "&units=metric&cnt=5",
-        success: function(data) {
-            console.log("날씨 데이터:", data);
-            // 여기에 날씨 데이터 처리 코드 추가
-        },
-        error: function(error) {
-            console.error("날씨 데이터 로딩 오류", error);
-        }
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      cache: 'force-cache'
     });
+
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const forecast = await response.json();
+    globalForecast = forecast;
+    updateForecastData(forecast); // 이름 충돌 방지를 위해 함수 이름 변경
+
+    // Refresh 버튼의 로딩 아이콘 제거
+    document.getElementById("refreshButton").innerHTML = "<i class='fa fa-refresh fa-fw'></i> Refresh";
+  } catch (error) {
+    console.error("Error with fetch:", error);
+  }
 }
 
+// 업데이트용 함수도 fetch로
+async function updateForecast(latitude, longitude) {
+  console.log("날씨 API 호출, 위도:", latitude, "경도:", longitude);
+  const url = `https://api.openweathermap.org/data/2.5/forecast?appid=34714b1decae1247457c40194af36eb2&lat=${latitude}&lon=${longitude}&units=metric`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data = await response.json();
+    console.log("날씨 데이터:", data);
+
+    // ✅ 현재 날씨 정보 추출 (list[0])
+    const current = data.list[0];
+    const currentWeather = {
+      city: data.city.name,
+      country: data.city.country,
+      time: new Date().toLocaleTimeString("ko-KR", { hour12: false }),
+      date: new Date().toLocaleDateString("ko-KR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+      temp: current.main.temp,
+      feels_like: current.main.feels_like,
+      weather: current.weather[0].description,
+      icon: current.weather[0].icon,
+      humidity: current.main.humidity,
+      wind: current.wind.speed,
+      temp_max: current.main.temp_max,
+      temp_min: current.main.temp_min
+    };
+
+    // ✅ 5일치 요약: 날짜별 최고/최저 기온, 대표 날씨 설명
+    const dailyMap = {};
+    data.list.forEach(entry => {
+      const date = entry.dt_txt.split(' ')[0];
+      if (!dailyMap[date]) {
+        dailyMap[date] = {
+          temps: [],
+          descriptions: {},
+          minTemp: entry.main.temp_min,
+          maxTemp: entry.main.temp_max
+        };
+      }
+
+      const d = dailyMap[date];
+      d.temps.push(entry.main.temp);
+      d.minTemp = Math.min(d.minTemp, entry.main.temp_min);
+      d.maxTemp = Math.max(d.maxTemp, entry.main.temp_max);
+
+      const desc = entry.weather[0].description;
+      d.descriptions[desc] = (d.descriptions[desc] || 0) + 1;
+    });
+
+    const dailyForecast = Object.entries(dailyMap).map(([date, values]) => {
+      const mostFrequentDescription = Object.entries(values.descriptions).reduce((a, b) => (a[1] > b[1] ? a : b))[0];
+      return {
+        date,
+        min: Math.round(values.minTemp),
+        max: Math.round(values.maxTemp),
+        description: mostFrequentDescription
+      };
+    });
+
+    // ✅ 원하는 값 출력
+    console.log("현재 날씨 요약:", currentWeather);
+    console.log("5일치 요약:", dailyForecast);
+
+    // 이후 currentWeather, dailyForecast로 화면에 뿌릴 수 있음
+
+  } catch (error) {
+    console.error("날씨 데이터 로딩 오류", error);
+  }
+}
+
+// 예시 함수: 실제 UI 업데이트하는 부분
+function updateForecastData(forecast) {
+  // forecast 데이터를 이용해 DOM 업데이트 등 처리
+  console.log("업데이트된 예보:", forecast);
+}
 
 
 
