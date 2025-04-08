@@ -3,7 +3,9 @@
     --bdrds: 3px;
     --white: #fff;
     --black: #000;
-    --gray: #ccc;
+    --gray: linear-gradient(
+      to top right, #ee99c4, #8473e4
+  );
     --salmon: #e8716d;
     --smoky-black: rgba(34, 34, 34, 0.85);
     --ff: 'Montserrat', sans-serif;
