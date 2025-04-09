@@ -7,8 +7,8 @@
     <title>It's Me!</title>
 
     <link rel="stylesheet" href="/ykw/ykw.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/navi/navi.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -201,7 +201,6 @@
                         </div>
 
                         <div class="option-active-content">
-                            <div class="option-active-content">
                                 <div class="player" style="width: fit-content;">
                                     <div class="cover">
                                         <img src="https://image.bugsm.co.kr/album/images/500/40839/4083984.jpg" alt="music">
@@ -224,8 +223,8 @@
                                     <div class="music-box">
                                         <input type="range" step="1" class="seekbar" value="0" min="0" max="100" oninput="handleSeekBar()">
                             
-                                        <audio class="music-element">
-                                            <source src="/ykw2/song.mp3" type="audio/mp3">
+                                        <audio class="music-element" preload="metadata">
+                                            <source src="/ykw/song.mp3" type="audio/mp3">
                                         </audio>
                                         <span class="current-time">0:00</span><span class="duration">0:00</span>
                                         <span class="play" onclick="handlePlay()">
@@ -233,7 +232,6 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                         <div class="label">
@@ -483,8 +481,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/ykw/ykw.js"></script>
-
+    <script type="module" src="/ykw/ykw.js"></script>
 </body>
+
+
 
 </html>
