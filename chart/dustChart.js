@@ -1,12 +1,8 @@
 // 네비게이션
-fetch('../navi/navi.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('navi-container').innerHTML = data;
-})
-.catch(error => console.error('Error loading navi:', error));
+import { fetchAndInsert } from '../navi/navi.js';
+fetchAndInsert('../navi/navi.html', 'navi-container');
 
-// 미세먼지 정보 불러오기기
+// 미세먼지 정보 불러오기
 async function getServiceKey() {
 	const res = await fetch('../util/config.json');
     const config = await res.json();
@@ -19,7 +15,7 @@ function formatDate(date) {
 
 async function fetchDustForecastTextOnly(dateStr, serviceKey) {
 	const params = new URLSearchParams({
-		serviceKey,
+		serviceKey,   // key, value 값이 같으면 한번만 선언해도 됨(단축 속성명)
 		returnType: 'json',
 		sidoName: '서울',
 		numOfRows: '100',
@@ -38,7 +34,7 @@ async function fetchDustForecastTextOnly(dateStr, serviceKey) {
 		const pm25Item = items.find(item => item.informCode === 'PM25');
 
 		if (!pm25Item) {
-			console.warn(`⚠️ ${dateStr} - PM2.5 예보 없음`);
+			console.warn(`${dateStr} - PM2.5 예보 없음`);
 			return { date: dateStr, informCause: null, informGrade: null, informOverall: null };
 		}
 
@@ -50,12 +46,12 @@ async function fetchDustForecastTextOnly(dateStr, serviceKey) {
 		};
 
 	} catch (error) {
-		console.error(`❌ ${dateStr} 날짜 데이터 오류:`, error);
+		console.error(`${dateStr} 날짜 데이터 오류:`, error);
 		return { date: dateStr, informCause: null, informGrade: null, informOverall: null };
 	}
 }
 
-// 📊 최근 N일 동안 예보 수집 (텍스트 전용)
+// 최근 N일 동안 예보 수집 (텍스트 전용)
 async function fetchDustForecastTextLastNDays(days = 7) {
 	const serviceKey = await getServiceKey();
 	const result = [];
@@ -73,16 +69,16 @@ async function fetchDustForecastTextLastNDays(days = 7) {
 }
 
 async function fetchData() {
-  console.log('📦 미세먼지 텍스트 예보 수집 중...');
+  console.log('미세먼지 텍스트 예보 수집 중...');
 
   let weeklyTextData;
 
   try {
     weeklyTextData = await fetchDustForecastTextLastNDays();
-    console.log('✅ 수집 완료 (텍스트 예보):');
+    console.log('수집 완료 (텍스트 예보):');
     console.dir(weeklyTextData, { depth: null });
   } catch (err) {
-    console.error('⚠️ 수집 실패:', err);
+    console.error('수집 실패:', err);
     return;
   }
 
