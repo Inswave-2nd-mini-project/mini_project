@@ -1,14 +1,17 @@
-// $(document).ready(function(){
-//     $('.parallax').parallax();
-//   });
+/*-----------------------------------------공통 nav-------------------------------------------*/
 
-function phone(){
-  Swal.fire({
-    html : '<i class="bi bi-telephone-fill"></i> 010-4186-1829<br> <i class="bi bi-envelope-fill"></i> ykw1230@naver.com',
-    icon : "info",
-    confirmButtonText : "닫기"
-  });
-}
+import { fetchAndInsert } from '../navi/navi.js';
+fetchAndInsert('../navi/navi.html', 'navi-container');
+
+/*--------------------------------------공통 nav END------------------------------------------*/
+
+/*-----------------------------------------함수 전역 선언-------------------------------------------*/
+window.phone = phone;
+window.handlePlay = handlePlay;
+window.handleFavorite = handleFavorite;
+window.handleRepeat = handleRepeat;
+window.handleVolume = handleVolume;
+/*--------------------------------------함수 전역 선언 END------------------------------------------*/
 
 //Toggling Menu
 const showMenu = (toggleId, navId) => {
@@ -128,16 +131,6 @@ function phone(){
 /*--------------------------사이드 SNS버튼 안의 연락처 버튼 swa END----------------------------*/
 
 
-/*-----------------------------------------공통 nav-------------------------------------------*/
-fetch('../navi/navi.html')
-.then(response => response.text())
-.then(data => {
-  document.getElementById('navi-container').innerHTML = data;
-})
-.catch(error => console.error('Error loading navi:', error));
-/*--------------------------------------공통 nav END------------------------------------------*/
-
-
 // About me 카드 클릭 시 열고 닫기
 document.querySelectorAll('.card').forEach((card) => {
     card.addEventListener('click', () => {
@@ -239,3 +232,8 @@ function handleVolumeUp() {
     volumeRange.value = Number(volumeRange.value) + 20
     music.volume = volumeRange.value / 100
 }
+
+
+
+
+
