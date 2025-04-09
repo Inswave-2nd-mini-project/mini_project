@@ -1,3 +1,7 @@
+// 네비게이션
+import { fetchAndInsert } from '../navi/navi.js';
+fetchAndInsert('../navi/navi.html', 'navi-container');
+
 document.addEventListener('DOMContentLoaded', function () {
   // fullPage.js 초기화
   new fullpage('#fullpage', {
@@ -197,10 +201,3 @@ function displayComments() {
   }
 }
 
-
-  fetch('../navi/navi.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navi-container').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading navi:', error));

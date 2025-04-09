@@ -1,10 +1,7 @@
 // 네비게이션
-	fetch('../navi/navi.html')
-		.then(response => response.text())
-		.then(data => {
-			document.getElementById('navi-container').innerHTML = data;
-		})
-		.catch(error => console.error('Error loading navi:', error));
+import { fetchAndInsert } from '../navi/navi.js';
+
+fetchAndInsert('../navi/navi.html', 'navi-container');
 
 
 // 캐러셀
@@ -36,8 +33,8 @@
 			items[index].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
 			items[index].style.zIndex = -stt;
 			items[index].style.filter = 'blur(5px)';
-			items[index].style.opacity = 0.6;
-			// items[index].style.opacity = stt == 2 ? 0 : 0.6;
+			// items[index].style.opacity = 0.6;
+			items[index].style.opacity = stt == 2 ? 0.3 : 0.6;
 		}
 	
 		stt = 0;
@@ -47,8 +44,8 @@
 			items[index].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
 			items[index].style.zIndex = -stt;
 			items[index].style.filter = 'blur(5px)';
-			items[index].style.opacity = 0.6;
-			// items[index].style.opacity = stt == 2 ? 0 : 0.6;
+			// items[index].style.opacity = 0.6;
+			items[index].style.opacity = stt == 2 ? 0.3 : 0.6;
 		}
 	}
     loadShow();
