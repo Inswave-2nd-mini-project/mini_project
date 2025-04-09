@@ -1,3 +1,8 @@
+// 네비게이션
+import { fetchAndInsert } from '../navi/navi.js';
+fetchAndInsert('../navi/navi.html', 'navi-container');
+
+// 다른 거
 let currentPage = 0; // 현재 페이지 인덱스
 const pages = document.querySelectorAll('.page'); // 모든 페이지 요소를 가져옵니다.
 
@@ -29,11 +34,3 @@ function scrollToPage(pageIndex) {
 
 // 첫 번째 페이지로 이동
 scrollToPage(currentPage);
-
-
-fetch('../navi/navi.html')
-.then(response => response.text())
-.then(data => {
-  document.getElementById('navi-container').innerHTML = data;
-})
-.catch(error => console.error('Error loading navi:', error));
