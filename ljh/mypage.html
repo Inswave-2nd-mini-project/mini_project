@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorite Thing Website</title>
+    <link rel="stylesheet" href="mypage.css" />
+    <!-- 네비게이션 -->
+    <link rel="stylesheet" href="../navi/navi.css">
+    <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="navi-container"></div>
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav-logo">My Favorite Thing</a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#about" class="nav-link active">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#music" class="nav-link">Music</a>
+            </li>
+            <li class="nav-item">
+              <a href="#movie" class="nav-link">Movie</a>
+            </li>
+            <li class="nav-item">
+              <a href="#food" class="nav-link">Food</a>
+            </li>
+            <li class="nav-item">
+              <a href="#comment" class="nav-link">Comment</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="l-main">
+      <section class="home bd-grid" id="about">
+        <div class="home-data">
+          <h1 class="home-title">
+            Hi, <br />I'm <span class="home-title-color">JIHYEON</span><br />
+            Welcome!
+          </h1>
+          <a href="#" class="button">Contact</a>
+          
+        </div>
+
+        <div class="home-social">
+          <a href="#" class="home-social-icon"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+          <a href="#" class="home-social-icon"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a href="#" class="home-social-icon"><i class="bx bxl-github"></i></a>
+        </div>
+
+        <div class="home-img">
+          <img src="https://i.postimg.cc/65sT6Z3M/perfil.png" alt="image" />
+        </div>
+      </section>
+
+      <section class="about section" id="music">
+        <h2 class="section-title">Favorite Music</h2>
+
+        <div class="about-container bd-grid">
+          <div class="about-img">
+            <img
+              src="https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2024/04/15/7b8604b9-8300-402b-b403-7e3c88eb4a23.jpg"
+              alt="image"
+            />
+          </div>
+
+          <div>
+            <h2 class="about-subtitle">Welcome to the show</h2>
+            <audio controls>
+              <!-- <source src="horse.ogg" type="audio/ogg" /> -->
+              <source
+                src="Welcome to the Show Official Audio.mp3"
+                type="audio/mpeg"
+              />
+            </audio>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills section" id="movie">
+        <h2 class="section-title">Favorite Movie</h2>
+
+        
+
+        <div class="skills-container bd-grid">
+
+            <div>
+                <img
+                  src="https://img.hankyung.com/photo/201811/20181122223301_5bf6b00cd56b9_1.jpg"
+                  alt="image"
+                  class="skills-img"
+                />
+              </div>
+
+          <div>
+            <h2 class="skills-subtitle"></h2>
+            <iframe src='https://tv.naver.com/embed/4460641?autoPlay=false' loading="lazy" frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='544' HEIGHT='306' allow='autoplay' allowfullscreen></iframe>
+
+            
+          
+        </div>
+      </section>
+
+      <section class="work section" id="food">
+        <h2 class="section-title">Favorite Food</h2>
+
+        <div class="work-container bd-grid">
+          <div class="work-img">
+            <img src="https://i.postimg.cc/NM0n9bsm/work1.jpg" alt="image" />
+          </div>
+
+          <div class="work-img">
+            <img src="https://i.postimg.cc/tJZmDTVg/work2.jpg" alt="image" />
+          </div>
+
+          <div class="work-img">
+            <img src="https://i.postimg.cc/52LWbPyt/work3.jpg" alt="image" />
+          </div>
+
+          <div class="work-img">
+            <img src="https://i.postimg.cc/fW1wsSCB/work4.jpg" alt="image" />
+          </div>
+
+          <div class="work-img">
+            <img src="https://i.postimg.cc/m2MTgZ6R/work5.jpg" alt="image" />
+          </div>
+
+          <div class="work-img">
+            <img src="https://i.postimg.cc/Qd3h9LR7/work6.jpg" alt="image" />
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="comment">
+        <h2 class="section-title">Comment</h2>
+
+        <div class="contact-container bd-grid">
+          <form action="" class="contact-form">
+            <!-- <input type="text" placeholder="Name" class="contact-input" />
+            <input type="email" placeholder="Email" class="contact-input" /> -->
+            <textarea
+              name=""
+              id=""
+              cols="0"
+              rows="10"
+              class="contact-input"
+            ></textarea>
+
+            <input type="button" value="Submit" class="contact-button button" />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-title">JIHYEON</p>
+
+      <div class="footer-social">
+        <a href="#" class="footer-icon"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="footer-icon"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="footer-icon"><i class="bx bxl-twitter"></i></a>
+      </div>
+
+      <p>&#169; 2025 Copyright all rights reserved</p>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="module" src="mypage.js"></script>
+  </body>
+</html>
