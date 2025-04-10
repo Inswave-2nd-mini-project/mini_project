@@ -1,15 +1,13 @@
 body{
-  background-image: 
-      linear-gradient(
-          to top right, #ee99c4, #8473e4
-      );
+  background: linear-gradient(to top right, #ffe4ec, #eac7ff, #cdb4ff);    
   min-height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace;
 }
+
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -22,7 +20,7 @@ table {
     margin-bottom: 60px;
   }
   .page-title h3 {
-    font-size: 28px;
+    font-size: 50px;
     color: #333333;
     font-weight: 400;
     text-align: center;
@@ -30,21 +28,20 @@ table {
   
   #board-search .search-window {
     padding: 15px 0;
-    /* background-color: #f9f7f9; */
   }
   #board-search .search-window .search-wrap {
     position: relative;
-  /*   padding-right: 124px; */
     margin: 0 auto;
     width: 80%;
     max-width: 564px;
   }
   #board-search .search-window .search-wrap input {
     height: 40px;
-    width: 100%;
+    width: 60%;
     font-size: 14px;
     padding: 7px 14px;
     border: 1px solid #ccc;
+    border-radius: 20px;
   }
   #board-search .search-window .search-wrap input:focus {
     border-color: #333;
@@ -62,7 +59,7 @@ table {
   }
   
   .board-table {
-    font-size: 13px;
+    /* font-size: 13px; */
     width: 100%;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -131,7 +128,7 @@ table {
     text-transform: uppercase;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    border-radius: 0;
+    border-radius: 20px;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -177,7 +174,7 @@ table {
   }
   .container {
     width: 1100px;
-    margin: 0 auto;
+    margin: 50 auto;
   }
   .blind {
     position: absolute;

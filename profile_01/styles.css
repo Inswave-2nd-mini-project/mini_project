@@ -1,6 +1,6 @@
 /* 기본 스타일 */
 body {
-  background-color: #BFCEFA;
+  background-color: #ffe4ec;
   transition: background-color 1s ease;
   margin: 0;
   padding: 0;
@@ -541,4 +541,8 @@ button
 
 ul {
   list-style: none;
+}
+
+#output-container{
+  display: none;
 }

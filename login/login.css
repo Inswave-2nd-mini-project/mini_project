@@ -3,9 +3,7 @@
     --bdrds: 3px;
     --white: #fff;
     --black: #000;
-    --gray: linear-gradient(
-      to top right, #ee99c4, #8473e4
-  );
+    --gray: gray;
     --salmon: #e8716d;
     --smoky-black: rgba(34, 34, 34, 0.85);
     --ff: 'Montserrat', sans-serif;
@@ -95,7 +93,7 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: var(--gray);
+    background: linear-gradient(to top right, #ffe4ec, #eac7ff, #cdb4ff);  
     background-size: cover;
   }
   

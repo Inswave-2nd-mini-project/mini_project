@@ -123,13 +123,18 @@
     </div>
     <!-- Section 3: 댓글 -->
     <div class="section" id="section3">
-      <div class="container">
+      <div class="container" id="input-container">
         <h2>Leave Us a Comment</h2>
         <form>
-         <textarea id="inputValue" placeholder='Add Your Comment'></textarea>
+         <textarea id="inputValue" placeholder='여기에 입력하세요'></textarea>
          <button id="saveBtn" type="button">저장</button>
-         <button id="loadBtn" type="button">불러오기</button>
-         <div id="output"></div>
+         <button id="loadBtn" type="button">댓글보기</button>
+        </form>
+      </div>
+      <div class="container" id = output-container>
+        <form>
+         <div id="output"></div>         
+         <button id="backBtn" type="button">돌아가기</button>
         </form>
       </div>
     </div>
