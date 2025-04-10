@@ -111,6 +111,13 @@ async function fetchData() {
     name: "서울 미세먼지 등급",
     data: levels
   }]);
+
+
+  const lastDayInformOverall = weeklyTextData[weeklyTextData.length - 1].informOverall;
+
+  const updatedText = lastDayInformOverall.replace(/([,:])/g, '$1<br>');
+  
+  document.getElementById('dust-level').innerHTML = `오늘의 미세먼지 등급: ${updatedText}`;
 }
 
 // 차트 옵션
@@ -161,7 +168,9 @@ var options = {
   },
   dataLabels: {
     enabled: false
-  }
+  },
+  colors: ['#8aabff']  // 차트 색상 조절절
+  
 };
 
 // 차트 렌더링
