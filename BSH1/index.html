@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="./bongo_cat/bongo_cat.css">
     <link rel="stylesheet" href="./Geolocation/Geolocation.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
     <link rel="stylesheet" href="./Localstorage/Localstorage.css">
-    <!-- <link rel="stylesheet" href="game.css"> -->
+    <!-- <link rel="stylesheet" href="game.css"> --> 
     <link rel="stylesheet" href="./Audio/Audio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../navi/navi.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9bd597e55f422e229194c0f36c363412"></script>
 </head>
 <body>
   <div id="navi-container"></div>
@@ -292,33 +290,39 @@
 
     <!-- 페이지 3: Geolocation -->
     <div id="page3" class="page">
-      <!-- 화양동 느티나무 -->
-      <div id="daumRoughmapContainer1628172686297" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+      <div id="map" style="width:100%; height:400px;"></div>
+      <script>
+        if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        // 사용자의 좌표정보
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
 
-      <!-- 송정체육공원 -->
-      <div id="daumRoughmapContainer1628172870416" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        // 카카오맵 옵션 설정: 사용자 위치를 중심으로 지정
+        var mapContainer = document.getElementById('map'),
+            mapOption = {
+                center: new kakao.maps.LatLng(lat, lng),
+                level: 3  // 지도의 확대 레벨 (숫자가 작을수록 확대됨)
+            };
 
+        // 지도 생성
+        var map = new kakao.maps.Map(mapContainer, mapOption);
 
-      <!-- 카카오맵 스크립트 -->
-      <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+        // 마커 표시 (사용자 위치에 마커 설정)
+        var markerPosition  = new kakao.maps.LatLng(lat, lng);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        marker.setMap(map);
+    }, function(error) {
+        // 위치 정보 취득 실패 시
+        console.error("위치 정보를 가져오지 못했습니다.", error);
+        alert("현재 위치 정보를 가져올 수 없습니다.");
+    });
+} else {
+    alert("이 브라우저에서는 Geolocation을 지원하지 않습니다.");
+}
 
-      <!-- 각 지도를 불러오는 스크립트 -->
-      <script charset="UTF-8">
-        // 화양동 느티나무
-        new daum.roughmap.Lander({
-          "timestamp" : "1628172686297",
-          "key" : "26vj2",
-          "mapWidth" : "480",  // 지도 가로 사이즈
-          "mapHeight" : "360"  // 지도 세로 사이즈
-        }).render();
-
-        // 송정체육공원
-        new daum.roughmap.Lander({
-          "timestamp" : "1628172870416",
-          "key" : "26vj4",
-          "mapWidth" : "480",
-          "mapHeight" : "360"
-        }).render();
       </script>
     </div>
 
