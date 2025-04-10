@@ -1,7 +1,3 @@
-// 네비게이션
-import { fetchAndInsert } from '../navi/navi.js';
-fetchAndInsert('../navi/navi.html', 'navi-container');
-
 //Toggling Menu
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId);
@@ -63,3 +59,67 @@ fetch("../navi/navi.html")
     document.getElementById("navi-container").innerHTML = data;
   })
   .catch((error) => console.error("Error loading navi:", error));
+
+// 로컬 스토리지
+document.getElementById("saveItems").addEventListener("click", function () {
+  // input과 textarea에 작성한 값 가져오기
+  const name = document.getElementById("name").value;
+  const content = document.getElementById("content").value;
+
+  // input, textarea에 없으면 alert 띄우고 return하기
+  if (!name || !content) {
+    alert("이름과 내용을 모두 입력해야 저장이 가능합니다.");
+    return;
+  }
+
+  // 로컬 스토리지에 저장된 값 JSON 형태로 가져오기
+  const localItems = JSON.parse(localStorage.getItem("localItems")) || [];
+
+  // 새로운 값 추가하기
+  localItems.push({ name: name, content: content });
+
+  // 로컬 스토리지에 JSON형태로 세팅하기
+  localStorage.setItem("localItems", JSON.stringify(localItems));
+
+  // input과 textarea 초기화하기
+  document.getElementById("name").value = "";
+  document.getElementById("content").value = "";
+
+  alert("방명록이 저장되었습니다.");
+
+  // 저장된 값을 화면에 보여주기
+  display();
+});
+
+function display() {
+  // 로컬 스토리지에 저장된 값 JSON 형태로 가져오기
+  const localItems = JSON.parse(localStorage.getItem("localItems")) || [];
+  // HTML 문서의 id = 'localList'인 값 선택
+  const localList = document.getElementById("localList");
+
+  // 기존 리스트 초기화
+  // 이전 값이 남아있는걸 방지하기 위해(중복방지)
+  localList.innerHTML = "";
+
+  // 로컬 스토리지에 있는 값을 HTML 문서의 id = 'localList'에 추가
+  localItems.forEach((item, index) => {
+    // 리스트형태로 세팅해주기 위해 <ul> 밑에 <li> 느낌
+    const listItem = document.createElement("li");
+    // listItem의 텍스트 내용을 세팅하기 위해 .textContent 사용
+    listItem.textContent = `No${index + 1}. 작성자 : ${item.name} 내용 : ${
+      item.content
+    }`;
+    // localList에 listItem 추가하기
+    localList.appendChild(listItem);
+  });
+}
+
+// document.getElementById("clearItems").addEventListener("click", function () {
+//   localStorage.clear();
+//   alert("방명록이 초기화되었습니다.");
+//   // 새로고침
+//   location.reload();
+// });
+
+// 페이지 로드 시 저장된 값 표시하기
+window.onload = display;

@@ -6,10 +6,10 @@
     <title>My Favorite Thing Website</title>
     <link rel="stylesheet" href="mypage.css" />
     <!-- 네비게이션 -->
-    <link rel="stylesheet" href="../navi/navi.css">
+    <link rel="stylesheet" href="../navi/navi.css" />
     <link
-    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-    rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
     />
   </head>
   <body>
@@ -54,7 +54,6 @@
             Welcome!
           </h1>
           <a href="#" class="button">Contact</a>
-          
         </div>
 
         <div class="home-social">
@@ -99,73 +98,67 @@
       <section class="skills section" id="movie">
         <h2 class="section-title">Favorite Movie</h2>
 
-        
-
         <div class="skills-container bd-grid">
-
-            <div>
-                <img
-                  src="https://img.hankyung.com/photo/201811/20181122223301_5bf6b00cd56b9_1.jpg"
-                  alt="image"
-                  class="skills-img"
-                />
-              </div>
+          <div>
+            <img
+              src="https://img.hankyung.com/photo/201811/20181122223301_5bf6b00cd56b9_1.jpg"
+              alt="image"
+              class="skills-img"
+            />
+          </div>
 
           <div>
             <h2 class="skills-subtitle"></h2>
-            <iframe src='https://tv.naver.com/embed/4460641?autoPlay=false' loading="lazy" frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='544' HEIGHT='306' allow='autoplay' allowfullscreen></iframe>
-
-            
-          
+            <iframe
+              src="https://tv.naver.com/embed/4460641?autoPlay=false"
+              loading="lazy"
+              frameborder="no"
+              scrolling="no"
+              marginwidth="0"
+              marginheight="0"
+              width="544"
+              height="306"
+              allow="autoplay"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </section>
 
       <section class="work section" id="food">
         <h2 class="section-title">Favorite Food</h2>
-
-        <div class="work-container bd-grid">
-          <div class="work-img">
-            <img src="https://i.postimg.cc/NM0n9bsm/work1.jpg" alt="image" />
+        <div class="about-container bd-grid">
+          <div class="about-img">
+            <img
+              src="https://minio.nculture.org/amsweb-opt/multimedia_assets/201/72585/65982/c/%EC%9A%B8%EB%B0%80%EB%8C%80-%EC%99%B8%EA%B4%80-medium-size.jpg"
+              alt="image"
+            />
           </div>
 
-          <div class="work-img">
-            <img src="https://i.postimg.cc/tJZmDTVg/work2.jpg" alt="image" />
+          <div>
+            <h2 class="about-subtitle">Pyeongyang Naengmyeon</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8947.295106241716!2d126.93559269526305!3d37.54689891415501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98a30e66e3e9%3A0xb8c92c4cde35b436!2z7J2E67CA64yAIOuzuOygkA!5e0!3m2!1sko!2skr!4v1744211537723!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-
-          <div class="work-img">
-            <img src="https://i.postimg.cc/52LWbPyt/work3.jpg" alt="image" />
-          </div>
-
-          <div class="work-img">
-            <img src="https://i.postimg.cc/fW1wsSCB/work4.jpg" alt="image" />
-          </div>
-
-          <div class="work-img">
-            <img src="https://i.postimg.cc/m2MTgZ6R/work5.jpg" alt="image" />
-          </div>
-
-          <div class="work-img">
-            <img src="https://i.postimg.cc/Qd3h9LR7/work6.jpg" alt="image" />
-          </div>
+        </div>
         </div>
       </section>
 
       <section class="contact section" id="comment">
         <h2 class="section-title">Comment</h2>
-
+        
         <div class="contact-container bd-grid">
           <form action="" class="contact-form">
-            <!-- <input type="text" placeholder="Name" class="contact-input" />
-            <input type="email" placeholder="Email" class="contact-input" /> -->
+            <input id="name" type="text" placeholder="Name" class="contact-input" />
+            <!--<input type="email" placeholder="Email" class="contact-input" /> -->
             <textarea
-              name=""
-              id=""
+              id = "content"
+              name="content"
               cols="0"
               rows="10"
               class="contact-input"
             ></textarea>
 
-            <input type="button" value="Submit" class="contact-button button" />
+            <input id="saveItems" type="button" value="Submit" class="contact-button button" />
           </form>
         </div>
       </section>
@@ -173,14 +166,18 @@
 
     <footer class="footer">
       <p class="footer-title">JIHYEON</p>
+      <div>
+        <h3>방명록</h3>
+        <ul id="localList"></ul>
+    </div>
 
-      <div class="footer-social">
+      <!-- <div class="footer-social">
         <a href="#" class="footer-icon"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="footer-icon"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="footer-icon"><i class="bx bxl-twitter"></i></a>
       </div>
 
-      <p>&#169; 2025 Copyright all rights reserved</p>
+      <p>&#169; 2025 Copyright all rights reserved</p> -->
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
