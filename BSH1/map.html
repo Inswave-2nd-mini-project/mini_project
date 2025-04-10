@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>카카오맵 + 위치 기반 검색</title>
+  <!-- Bootstrap CSS (CDN 예시) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9bd597e55f422e229194c0f36c363412&libraries=services"></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container mt-4">
+    <h3 class="mb-3">현재 위치 기반 장소 검색</h3>
+    <div id="map" class="mb-3 rounded shadow-sm"></div>
+    <div class="input-group mb-3">
+      <input type="text" id="keyword" class="form-control" placeholder="검색어 (ex: 스타벅스)">
+      <div class="input-group-append">
+        <button class="btn btn-primary" onclick="searchPlaces()">검색</button>
+      </div>
+    </div>
+    <table id="placesList" class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>이름</th>
+          <th>주소</th>
+          <th>거리(m)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    let map;
+    let ps;
+    let markers = [];
+    let userLatLng;
+    const tbody = document.querySelector('#placesList tbody');
+    
+    window.onload = function() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+  enableHighAccuracy: true, 
+  maximumAge: 0, 
+  timeout: 10000
+});
+      
+      function onSuccess(position) {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        userLatLng = new kakao.maps.LatLng(lat, lng);
+        
+        const mapContainer = document.getElementById('map');
+        const mapOption = { center: userLatLng, level: 5 };
+        map = new kakao.maps.Map(mapContainer, mapOption);
+        ps = new kakao.maps.services.Places();
+        
+        new kakao.maps.Marker({ map: map, position: userLatLng });
+      }
+      
+      function onError(error) {
+        alert('위치 정보를 가져올 수 없습니다. 기본 좌표로 표시합니다.');
+        userLatLng = new kakao.maps.LatLng(37.566826, 126.9786567);
+        const mapContainer = document.getElementById('map');
+        const mapOption = { center: userLatLng, level: 5 };
+        map = new kakao.maps.Map(mapContainer, mapOption);
+        ps = new kakao.maps.services.Places();
+      }
+    }
+    
+    function searchPlaces() {
+      if (!ps) {
+        alert('지도가 아직 준비되지 않았습니다.');
+        return;
+      }
+      const keyword = document.getElementById('keyword').value.trim();
+      if (!keyword) {
+        alert('검색어를 입력하세요!');
+        return;
+      }
+      ps.keywordSearch(keyword, placesSearchCB, { location: userLatLng, radius: 2000 });
+    }
+    
+    function placesSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        removeMarkers();
+        tbody.innerHTML = '';
+        data.forEach(place => {
+          displayMarker(place);
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td style="cursor:pointer;" onclick="map.setCenter(new kakao.maps.LatLng(${place.y}, ${place.x}))">${place.place_name}</td>
+            <td>${place.road_address_name || place.address_name}</td>
+            <td>${place.distance ? place.distance : '-'}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      } else {
+        alert('검색 결과가 없습니다.');
+      }
+    }
+    
+    function displayMarker(place) {
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x)
+      });
+      markers.push(marker);
+      kakao.maps.event.addListener(marker, 'click', () => alert(place.place_name + ' 클릭됨!'));
+    }
+    
+    function removeMarkers() {
+      markers.forEach(marker => marker.setMap(null));
+      markers = [];
+    }
+  </script>
+  <!-- Bootstrap JS, Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
