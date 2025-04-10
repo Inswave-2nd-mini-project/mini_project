@@ -1,5 +1,4 @@
 body{
-    background: linear-gradient(to top right, #ffe4ec, #eac7ff, #cdb4ff);    
     min-height: 100vh;
     margin: 0;
     display: flex;
@@ -29,7 +28,7 @@ body{
 #next, #prev{
     position: absolute;
     top: 40%;
-    color: #fff;
+    color: #000000;
     background-color: transparent;
     border: none;
     font-size: xxx-large;

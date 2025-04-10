@@ -11,12 +11,16 @@
       width: 100%;
       height: 400px;
     }
+    .table {
+  border-radius: 10px; /* 테이블 모서리 둥글게 */
+  overflow: hidden; /* 테이블 안의 내용이 둥글게 표시되도록 */
+  background-color: rgba(255, 255, 255, 0.3); /* 테이블 배경 반투명 흰색 */
+}
   </style>
 </head>
 <body>
   <div id="navi-container"></div>
   <div class="container mt-4">
-    <h3 class="mb-3">현재 위치 기반 장소 검색</h3>
     <div id="map" class="mb-3 rounded shadow-sm"></div>
     <div class="input-group mb-3">
       <input type="text" id="keyword" class="form-control" placeholder="검색어 (ex: 스타벅스)">
@@ -61,7 +65,7 @@
       
       function onError(error) {
         alert('위치 정보를 가져올 수 없습니다. 기본 좌표로 표시합니다.');
-        userLatLng = new kakao.maps.LatLng(37.566826, 126.9786567);
+        userLatLng = new kakao.maps.LatLng(37.584086, 127.000696);
         const mapContainer = document.getElementById('map');
         const mapOption = { center: userLatLng, level: 5 };
         map = new kakao.maps.Map(mapContainer, mapOption);

@@ -1,5 +1,4 @@
 body{
-  background: linear-gradient(to top right, #ffe4ec, #eac7ff, #cdb4ff);    
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -37,7 +36,7 @@ table {
   }
   #board-search .search-window .search-wrap input {
     height: 40px;
-    width: 60%;
+    width: 80%;
     font-size: 14px;
     padding: 7px 14px;
     border: 1px solid #ccc;
