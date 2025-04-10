@@ -13,7 +13,7 @@
 			},
 			pt = mainSVG.createSVGPoint(),
 			mousePos = {x: 0, y: 0},		
-			colorArray = ["#e0c6ff","#d1a3ff","#a67cff","#7b5cff"],
+			colorArray = ["#FF6666","#FFB84D","#FFFF66","#66B266"],
 			extendedColorArray = [
 				{"name":"김지훈"},
 				{"name":"배상현"},
