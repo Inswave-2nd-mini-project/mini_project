@@ -2,7 +2,7 @@
 import { fetchAndInsert } from '../navi/navi.js';
 fetchAndInsert('../navi/navi.html', 'navi-container');
 
-// 페이지 인덱스 설정
+// 페이지 인덱스
 let currentPage = 0; // 현재 페이지 인덱스
 const pages = document.querySelectorAll('.page'); // 모든 페이지 요소를 가져옵니다.
 
