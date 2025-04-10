@@ -165,11 +165,12 @@ for (var i = 0; i < aImgElements.length; i++) {
 }
 
 
-  // 댓글 저장/불러오기 이벤트 연결
+  // 댓글 저장/불러오기
   document.getElementById("saveBtn").addEventListener("click", saveComment);
   document.getElementById("loadBtn").addEventListener("click", displayComments);
+  document.getElementById("backBtn").addEventListener("click", usAComment);
 
-/* ========== 댓글 저장/불러오기 (리스트 형태) ========== */
+/* ========== 댓글 저장 ========== */
 function saveComment() {
   var inputElement = document.getElementById("inputValue");
   var comment = inputElement.value.trim();
@@ -177,13 +178,11 @@ function saveComment() {
     alert("댓글을 입력하세요");
     return;
   }
-  // 기존 댓글 배열 불러오기 (없으면 빈 배열)
   var comments = JSON.parse(localStorage.getItem("comments") || "[]");
   comments.push(comment);
   localStorage.setItem("comments", JSON.stringify(comments));
   alert("댓글이 저장되었습니다");
   inputElement.value = "";
-  displayComments();
 }
 
 function displayComments() {
@@ -191,13 +190,20 @@ function displayComments() {
   var outputElement = document.getElementById("output");
   if (comments.length > 0) {
     var listHTML = "<ul>";
-    comments.forEach(function(c) {
-      listHTML += "<li>" + c + "</li>";
-    });
+    for (var i = 0; i < comments.length; i++) {
+      listHTML += "<li>" + (i + 1) + ". " + comments[i] + "</li>";
+    }
     listHTML += "</ul>";
     outputElement.innerHTML = listHTML;
   } else {
     outputElement.textContent = "저장된 댓글이 없습니다.";
   }
+
+  document.getElementById("input-container").style.display = "none";
+  document.getElementById("output-container").style.display = "block";
 }
 
+function usAComment(){
+  document.getElementById("input-container").style.display = "block";
+  document.getElementById("output-container").style.display = "none";
+}

@@ -542,3 +542,7 @@ button
 ul {
   list-style: none;
 }
+
+#output-container{
+  display: none;
+}
