@@ -1,3 +1,6 @@
+import { fetchAndInsert } from '../navi/navi.js';
+fetchAndInsert('../navi/navi.html', 'navi-container');
+
 // Variables globales pour les fonctions de suppression
 let currentTaskToDelete = null;
 // Fonction pour afficher la confirmation

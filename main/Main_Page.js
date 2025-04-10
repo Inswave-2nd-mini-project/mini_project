@@ -62,9 +62,9 @@ prev.onclick = function(){
 
 //  이동할 html 링크
 	const links = [
-		"../BSH1/index.html", 					//칸반	
+		"../kanban/kanban.html", 					//칸반	
 		"../board/board.html",					//보드
-		"../ljh/cardpage.html",					//지도
+		"../map/map.html",						//지도
 		"../chart/dustChart.html",				//차트
 		"../team3/team3.html"					//조 소개
 	];
