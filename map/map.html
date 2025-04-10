@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <title>카카오맵 + 위치 기반 검색</title>
-  <!-- Bootstrap CSS (CDN 예시) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9bd597e55f422e229194c0f36c363412&libraries=services"></script>
+  <link rel="stylesheet" href="../navi/navi.css">
   <style>
     #map {
       width: 100%;
@@ -13,7 +13,8 @@
     }
   </style>
 </head>
-<body class="bg-light">
+<body>
+  <div id="navi-container"></div>
   <div class="container mt-4">
     <h3 class="mb-3">현재 위치 기반 장소 검색</h3>
     <div id="map" class="mb-3 rounded shadow-sm"></div>
@@ -28,7 +29,7 @@
         <tr>
           <th>이름</th>
           <th>주소</th>
-          <th>거리(m)</th>
+          <th>거리</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -78,7 +79,7 @@
         alert('검색어를 입력하세요!');
         return;
       }
-      ps.keywordSearch(keyword, placesSearchCB, { location: userLatLng, radius: 2000 });
+      ps.keywordSearch(keyword, placesSearchCB, { location: userLatLng});
     }
     
     function placesSearchCB(data, status, pagination) {
@@ -91,7 +92,7 @@
           row.innerHTML = `
             <td style="cursor:pointer;" onclick="map.setCenter(new kakao.maps.LatLng(${place.y}, ${place.x}))">${place.place_name}</td>
             <td>${place.road_address_name || place.address_name}</td>
-            <td>${place.distance ? place.distance : '-'}</td>
+            <td>${place.distance ? (place.distance / 1000).toFixed(2) + ' km' : '-'}</td>
           `;
           tbody.appendChild(row);
         });
@@ -114,7 +115,7 @@
       markers = [];
     }
   </script>
-  <!-- Bootstrap JS, Popper.js -->
+  <script type="module" src="map.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

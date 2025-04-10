@@ -36,8 +36,8 @@ buttons.forEach((btn) => {
 });
 
 
-  // Section2가 활성화되면 3D 갤러리 초기화
-  var section2 = document.getElementById("section2");
+  // Section3가 활성화되면 3D 갤러리 초기화
+  var section3 = document.getElementById("section3");
   var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting) {
       console.log("Section 2 is now visible, initializing 3D gallery...");
@@ -45,7 +45,7 @@ buttons.forEach((btn) => {
       observer.disconnect();
     }
   }, { threshold: 0.5 });
-  observer.observe(section2);
+  observer.observe(section3);
 
   console.log('FullPage initialized');
 });
@@ -97,9 +97,9 @@ if (autoRotate) {
   ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
 }
 
-/* ========== 드래그 이벤트 (Section2 활성 시) ========== */
+/* ========== 드래그 이벤트 (Section3 활성 시) ========== */
 document.onpointerdown = function (e) {
-  if (!document.getElementById("section2").classList.contains("active")) {
+  if (!document.getElementById("section3").classList.contains("active")) {
     return;
   }
   clearInterval(odrag.timer);
@@ -138,7 +138,7 @@ document.onpointerdown = function (e) {
 };
 
 document.onmousewheel = function(e) {
-  if (!document.getElementById("section2").classList.contains("active")){
+  if (!document.getElementById("section3").classList.contains("active")){
     return;
   }
   var d = e.wheelDelta / 20 || -e.detail;

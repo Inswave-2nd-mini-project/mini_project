@@ -102,8 +102,25 @@
         </svg>
       </a>
     </div>
-    <!-- Section 2: 3D 갤러리 -->
+    <!-- Section 2: Comment -->
     <div class="section" id="section2">
+      <div class="container" id="input-container">
+        <h2>Comment</h2>
+        <form>
+         <textarea id="inputValue" placeholder='여기에 입력하세요'></textarea>
+         <button id="saveBtn" type="button">저장</button>
+         <button id="loadBtn" type="button">댓글보기</button>
+        </form>
+      </div>
+      <div class="container" id = output-container>
+        <form>
+         <div id="output"></div>         
+         <button id="backBtn" type="button">돌아가기</button>
+        </form>
+      </div>
+    </div>
+    <!-- Section 3: 노래 및 영상 -->
+    <div class="section" id="section3">
       <div id="drag-container">
         <div id="spin-container">
           <img src="https://i.namu.wiki/i/G2-_PvO7XKE8T9jgj6DDCJUX3i-VH_4e_KCTF-fLiyBV_47nVDSQZ1T6J1LBgYEtS-VMGflFe8YbuXJZ5_HiAw.gif" alt="" data-audio="">
@@ -120,25 +137,6 @@
         <div id="ground"></div>
       </div>
       <div id="music-container"></div>
-    </div>
-    <!-- Section 3: 댓글 -->
-    <div class="section" id="section3">
-      <div class="container" id="input-container">
-        <h2>Leave Us a Comment</h2>
-        <form>
-         <textarea id="inputValue" placeholder='여기에 입력하세요'></textarea>
-         <button id="saveBtn" type="button">저장</button>
-         <button id="loadBtn" type="button">댓글보기</button>
-        </form>
-      </div>
-      <div class="container" id = output-container>
-        <form>
-         <div id="output"></div>         
-         <button id="backBtn" type="button">돌아가기</button>
-        </form>
-      </div>
-    </div>
-    </div>
 <script type="module" src="script.js"></script>
 </body>
 </html>
