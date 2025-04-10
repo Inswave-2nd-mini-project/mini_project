@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     autoScrolling: true,
     navigation: true,
     onLeave: function (origin, destination, direction) {
-      const colors = ['#ffe4ec', '#eac7ff', '#cdb4ff'];
+      const colors = ['#BFCEFA', '#C5E0F8', '#CBF1F5'];
       document.body.style.backgroundColor = colors[destination.index];
     }
   });

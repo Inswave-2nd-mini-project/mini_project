@@ -66,7 +66,7 @@ prev.onclick = function(){
 		"../board/board.html",					//보드
 		"../ljh/cardpage.html",					//지도
 		"../chart/dustChart.html",				//차트
-		"../login/login.html"					//조 소개(?)
+		"../team3/team3.html"					//조 소개
 	];
   
 // 이미지 클릭 시 해당 html로 이동
