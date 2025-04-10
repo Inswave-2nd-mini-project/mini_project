@@ -181,7 +181,27 @@ music.onloadeddata = function () {
     duration.innerHTML = dm + ':' + ds
 }
 music.ontimeupdate = function () { seekbar.value = music.currentTime }
-handleSeekBar = function () { music.currentTime = seekbar.value }
+// Handle Seekbar for music player
+function handleSeekBar() {
+    // get the music player and seekbar elements
+    var music = document.querySelector('.music-element');
+    var seekbar = document.querySelector('.seekbar');
+
+    // update the current time of the music element based on the seekbar value
+    music.currentTime = seekbar.value;
+
+    // optional: show current time (e.g., update a time display element)
+    var currentTime = document.querySelector('.current-time');
+    var duration = music.duration;
+
+    var currentMinutes = Math.floor(music.currentTime / 60);
+    var currentSeconds = Math.floor(music.currentTime % 60);
+    var durationMinutes = Math.floor(duration / 60);
+    var durationSeconds = Math.floor(duration % 60);
+
+    currentTime.innerHTML = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
+}
+
 music.addEventListener('timeupdate', function () {
     var cs = parseInt(music.currentTime % 60).toString().padStart(2, '0');
     var cm = parseInt((music.currentTime / 60) % 60)
@@ -235,5 +255,64 @@ function handleVolumeUp() {
 
 
 
+//-------------------------------------------comment-------------------------------------
+// 댓글 목록을 불러오는 함수
+function loadComments() {
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    console.log('Loaded comments:', comments);  // 로드된 댓글 로그 출력
+
+    const commentList = document.querySelector('.comment-list-container');
+    commentList.innerHTML = '';
+
+    comments.forEach((comment) => {
+        const commentItem = document.createElement('div');
+        commentItem.classList.add('comment-item');
+        
+        commentItem.innerHTML = `
+            <p class="comment-user">${comment.user}</p>
+            <p class="comment-content">${comment.content}</p>
+        `;
+        
+        commentList.appendChild(commentItem);
+    });
+}
+
+// 댓글을 저장하는 함수
+document.querySelector('.comment-form').addEventListener('submit', function(event) {
+    event.preventDefault();  // 기본 폼 제출 동작을 막기
+
+    const user = document.querySelector('.comment-input').value.trim();
+    const content = document.querySelector('#cmt_content').value.trim();
+
+    // 댓글이 비어 있지 않으면 저장
+    if (user && content) {
+        const newComment = { user, content };
+
+        // 기존의 댓글을 localStorage에서 가져옴
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+        // 새로운 댓글을 추가하고 다시 저장
+        comments.push(newComment);
+        
+        // 저장하기 전에 로그 출력
+        console.log('Saving comment:', newComment);
+
+        localStorage.setItem('comments', JSON.stringify(comments));
+
+        // 입력창 초기화
+        document.querySelector('.comment-input').value = '';
+        document.querySelector('#cmt_content').value = '';
+
+        // 댓글 목록 새로고침
+        loadComments();
+    } else {
+        alert('이름과 댓글 내용을 입력해주세요.');
+    }
+});
 
 
+// 페이지 로드 시 댓글 목록 불러오기
+window.addEventListener('load', loadComments);
+
+
+//-----------------------------------------comment END-------------------------------------

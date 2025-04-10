@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./Audio/Audio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../navi/navi.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9bd597e55f422e229194c0f36c363412"></script>
 </head>
 <body>
   <div id="navi-container"></div>
@@ -288,51 +287,15 @@
         <p><strong>소개:</strong> 안녕하세요, 저는 개발자 배상현입니다. 다양한 웹 개발 실습을 하고 있습니다.</p>
     </div>
 
-    <!-- 페이지 3: Geolocation -->
+    <!-- 페이지 3: 미정 -->
     <div id="page3" class="page">
-      <div id="map" style="width:100%; height:400px;"></div>
-      <script>
-        if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        // 사용자의 좌표정보
-        var lat = position.coords.latitude;
-        var lng = position.coords.longitude;
-
-        // 카카오맵 옵션 설정: 사용자 위치를 중심으로 지정
-        var mapContainer = document.getElementById('map'),
-            mapOption = {
-                center: new kakao.maps.LatLng(lat, lng),
-                level: 3  // 지도의 확대 레벨 (숫자가 작을수록 확대됨)
-            };
-
-        // 지도 생성
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-
-        // 마커 표시 (사용자 위치에 마커 설정)
-        var markerPosition  = new kakao.maps.LatLng(lat, lng);
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-        marker.setMap(map);
-    }, function(error) {
-        // 위치 정보 취득 실패 시
-        console.error("위치 정보를 가져오지 못했습니다.", error);
-        alert("현재 위치 정보를 가져올 수 없습니다.");
-    });
-} else {
-    alert("이 브라우저에서는 Geolocation을 지원하지 않습니다.");
-}
-
-      </script>
+      <h1>아직 미정</h1>
     </div>
 
-    <!-- 페이지 4: Localstorage -->
+    <!-- 페이지 4: 미정 -->
     <div id="page4" class="page">
-      <h1>💾 로컬 스토리지</h1>
-      <input type="text" id="storage-input" placeholder="저장할 값 입력" />
-      <button id="save-btn">저장</button>
-      <button id="load-btn">불러오기</button>
-      <p id="storage-output">저장된 값이 없습니다.</p>
+      <h1>아직 미정</h1>
+      
     </div>
 
     <!-- 페이지 5: Video -->
