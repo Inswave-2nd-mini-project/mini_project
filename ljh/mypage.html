@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Favorite Thing Website</title>
-    <link rel="stylesheet" href="mypage.css" />
-    <!-- 네비게이션 -->
-    <link rel="stylesheet" href="../navi/navi.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="mypage.css" />
+    <!-- 네비게이션 -->
+    <link rel="stylesheet" href="../navi/navi.css" />
   </head>
   <body>
     <div id="navi-container"></div>
@@ -143,6 +145,16 @@
         </div>
       </section>
 
+      <!--추가섹션 (방명록)-->
+      <section class="work section" id="food">
+        <h2 class="section-title">Guest Book</h2>
+
+        <div id="localList" class="work-container bd-grid">
+          
+        </div>
+      </section>
+
+
       <section class="contact section" id="comment">
         <h2 class="section-title">Comment</h2>
         
@@ -166,10 +178,12 @@
 
     <footer class="footer">
       <p class="footer-title">JIHYEON</p>
-      <div>
+      
+      <!-- <div>
         <h3>방명록</h3>
         <ul id="localList"></ul>
-    </div>
+      </div> -->
+      
 
       <!-- <div class="footer-social">
         <a href="#" class="footer-icon"><i class="bx bxl-facebook"></i></a>

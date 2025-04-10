@@ -487,3 +487,12 @@ img {
   font-size: 26px;
   z-index: 1000;
 }
+
+.guestbook-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}

@@ -68,7 +68,7 @@ document.getElementById("saveItems").addEventListener("click", function () {
 
   // input, textarea에 없으면 alert 띄우고 return하기
   if (!name || !content) {
-    alert("이름과 내용을 모두 입력해야 저장이 가능합니다.");
+    swal("ERROR","이름과 내용을 모두 입력해야 제출이 가능합니다.","error");
     return;
   }
 
@@ -76,7 +76,7 @@ document.getElementById("saveItems").addEventListener("click", function () {
   const localItems = JSON.parse(localStorage.getItem("localItems")) || [];
 
   // 새로운 값 추가하기
-  localItems.push({ name: name, content: content });
+  localItems.push({ name:name, content:content });
 
   // 로컬 스토리지에 JSON형태로 세팅하기
   localStorage.setItem("localItems", JSON.stringify(localItems));
@@ -85,7 +85,7 @@ document.getElementById("saveItems").addEventListener("click", function () {
   document.getElementById("name").value = "";
   document.getElementById("content").value = "";
 
-  alert("방명록이 저장되었습니다.");
+  swal("성공!", "방명록이 저장되었습니다.", "success");
 
   // 저장된 값을 화면에 보여주기
   display();
@@ -101,17 +101,35 @@ function display() {
   // 이전 값이 남아있는걸 방지하기 위해(중복방지)
   localList.innerHTML = "";
 
-  // 로컬 스토리지에 있는 값을 HTML 문서의 id = 'localList'에 추가
-  localItems.forEach((item, index) => {
-    // 리스트형태로 세팅해주기 위해 <ul> 밑에 <li> 느낌
-    const listItem = document.createElement("li");
-    // listItem의 텍스트 내용을 세팅하기 위해 .textContent 사용
-    listItem.textContent = `No${index + 1}. 작성자 : ${item.name} 내용 : ${
-      item.content
-    }`;
-    // localList에 listItem 추가하기
-    localList.appendChild(listItem);
-  });
+  // // 로컬 스토리지에 있는 값을 HTML 문서의 id = 'localList'에 추가
+  // localItems.forEach((item, index) => {
+  //   // 리스트형태로 세팅해주기 위해 <ul> 밑에 <li> 느낌
+  //   const listItem = document.createElement("li");
+  //   // listItem의 텍스트 내용을 세팅하기 위해 .textContent 사용
+  //   listItem.textContent = `No${index + 1}. 작성자 : ${item.name} 내용 : ${
+  //     item.content
+  //   }`;
+  //   // localList에 listItem 추가하기
+  //   localList.appendChild(listItem);
+  // });
+    
+    localItems.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.className = "card mb-3";
+
+      const cardBody = document.createElement("div");
+      cardBody.className = "card-body";
+      
+      // 카드 타이틀과 텍스트 설정
+      cardBody.innerHTML = `
+      <h5 class="card-title"><strong>${item.content}</strong></h5>
+      <p class="card-text"><strong>${item.name}</strong></p>
+    `;
+      card.appendChild(cardBody);
+      localList.appendChild(card);
+      
+    });
+  
 }
 
 // document.getElementById("clearItems").addEventListener("click", function () {
