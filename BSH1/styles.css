@@ -153,7 +153,7 @@ button:hover {
   
   .profile h1 {
     font-family: 'Fjalla One', sans-serif;
-    color: #D10606;
+    color: #000000;
     position: absolute;
     width: 100%;
     padding: 0 0 0 32%;
@@ -177,7 +177,7 @@ button:hover {
     bottom: -10vw;
     width: 5px;
     height: 10vw;
-    background-color: #D10606;
+    background-color: #575454;
   }
   
   .profile:hover h1 {
