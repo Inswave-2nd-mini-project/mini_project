@@ -15,10 +15,10 @@
 			mousePos = {x: 0, y: 0},		
 			colorArray = ["#FF6666","#FFB84D","#FFFF66","#66B266"],
 			extendedColorArray = [
-				{"name":"김지훈"},
-				{"name":"배상현"},
-				{"name":"이지현"},
-				{"name":"여경원"}
+				{"name":" "},
+				{"name":" "},
+				{"name":" "},
+				{"name":" "}
 				],
 			spacerX = 167,
 			colorTabArr = []
@@ -73,7 +73,7 @@
 	function update() {
 		colorTabArr.forEach((i, c) => {
 			let deltaX = gsap.getProperty(i, 'x') - mousePos.x + 110;
-			let deltaY = gsap.getProperty(i, 'y') - mousePos.y  - (visibleArea.offset - 250);
+			let deltaY = gsap.getProperty(i, 'y') - mousePos.y  - (visibleArea.offset - 150);
 	
 			let distance = Math.hypot(deltaX, deltaY);
 	
@@ -90,3 +90,16 @@
 	gsap.ticker.add(update);
 
 	onclick = function() {};
+
+	const pageLinks = [
+		'../profile_01/profile_jihun.html',
+		'../BSH1/index.html',
+		'../ljh/mypage.html',
+		'../ykw/ykw.html'
+	  ];
+	  
+	  colorTabArr.forEach((tab, index) => {
+		tab.addEventListener('click', () => {
+		  window.location.href = pageLinks[index];
+		});
+	  });
