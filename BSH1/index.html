@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Geolocation/Geolocation.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Localstorage/Localstorage.css">
-    <!-- <link rel="stylesheet" href="game.css"> --> 
+    <link rel="stylesheet" href="./game/game.css"> 
     <link rel="stylesheet" href="./Audio/Audio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../navi/navi.css">
@@ -298,9 +298,43 @@
 
     </div>
 
-    <!-- 페이지 3: 미정 -->
+    <!-- 페이지 3: Game -->
     <div id="page3" class="page">
-      <h1>아직 미정</h1>
+      <div class="wrapper">
+        <div class="collection-box pix"></div>
+        <div class="claw-machine">
+          <div class="box pix">
+            <div class="machine-top pix">
+              <div class="arm-joint pix">
+                <div class="arm pix">
+                  <div class="claws pix"></div>
+                </div>
+              </div>
+              <div class="rail vert pix"></div>
+              <div class="rail hori pix"></div>
+            </div>
+            <div class="machine-bottom pix">
+              <div class="collection-point pix"></div>
+            </div>
+          </div>
+          <div class="control pix">
+            <div class="cover left"></div>
+            <button class="hori-btn pix"></button>
+            <button class="vert-btn pix"></button>
+            <div class="cover right">
+              <div class="instruction pix"></div>
+            </div>
+            <div class="cover bottom"></div>
+            <div class="cover top">
+              <div class="collection-arrow pix"></div>
+            </div>
+            <div class="collection-point pix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sign">
+        by masahito / <a href="http://www.ma5a.com/">ma5a.com</a>
+      </div>
     </div>
 
     <!-- 페이지 4: 미정 -->
@@ -368,7 +402,7 @@
     <script type="module" src="script.js"></script>
     <script src="./Geolocation/Geolocation.js"></script>
     <script src="./Localstorage/Localstorage.js"></script>
-    <!-- <script src="game.js"></script> -->
+    <script src="./game/game.js"></script>
     <script src="./Audio/Audio.js"></script>
 </body>
 </html>
