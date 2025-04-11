@@ -77,3 +77,30 @@ prev.onclick = function(){
 			}
 		}
 	});
+
+	    // Configuration du thème
+		const themeToggle = document.getElementById('themeToggle');
+		const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+		// Initialiser le thème
+		function initTheme() {
+			const savedTheme = localStorage.getItem('theme');
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-theme', savedTheme);
+				updateThemeIcon(savedTheme);
+			} else if (prefersDarkScheme.matches) {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				updateThemeIcon('dark');
+			}
+		}
+	
+		function updateThemeIcon(theme) {
+			themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+		}
+		// Gérer le changement de thème
+		themeToggle.addEventListener('click', () => {
+			const currentTheme = document.documentElement.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+			document.documentElement.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+		});
