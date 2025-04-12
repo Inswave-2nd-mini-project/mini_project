@@ -153,17 +153,29 @@ audioPlayer.style.display = 'none';
 document.getElementById('music-container').appendChild(audioPlayer);
 
 var aImgElements = document.getElementsByTagName('img');
+var currentAudioSrc = null; // 현재 재생 중인 오디오 소스 추적
+
 for (var i = 0; i < aImgElements.length; i++) {
-  aImgElements[i].addEventListener('click', function() {
+  aImgElements[i].addEventListener('click', function () {
     var audioSrc = this.getAttribute('data-audio');
+
+    // 같은 소스를 다시 클릭한 경우: 재생 중지
+    if (audioPlayer.src === audioSrc && !audioPlayer.paused) {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      currentAudioSrc = null;
+      return;
+    }
+
+    // 새로운 소스를 클릭한 경우: 재생
     if (audioSrc) {
       audioPlayer.src = audioSrc;
       audioPlayer.style.display = 'none';
       audioPlayer.play();
+      currentAudioSrc = audioSrc;
     }
   });
 }
-
 
   // 댓글 저장/불러오기
   document.getElementById("saveBtn").addEventListener("click", saveComment);
@@ -178,15 +190,15 @@ function saveComment() {
     alert("댓글을 입력하세요");
     return;
   }
-  var comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  var comments = JSON.parse(localStorage.getItem("comments_jihun") || "[]");
   comments.push(comment);
-  localStorage.setItem("comments", JSON.stringify(comments));
+  localStorage.setItem("comments_jihun", JSON.stringify(comments));
   alert("댓글이 저장되었습니다");
   inputElement.value = "";
 }
 
 function displayComments() {
-  var comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  var comments = JSON.parse(localStorage.getItem("comments_jihun") || "[]");
   var outputElement = document.getElementById("output");
   if (comments.length > 0) {
     var listHTML = "<ul>";
