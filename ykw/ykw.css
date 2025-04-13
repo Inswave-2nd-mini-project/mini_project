@@ -791,12 +791,22 @@ html, body {
     gap: 10px;  /* 이미지들 간에 간격을 설정 (선택 사항) */
 }
 
+/* 오버레이는 항상 클릭 막지 않음 */
 .option-overlay {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 0;  /* 처음엔 아래로 둔다 */
     background: transparent;
+    pointer-events: none;
 }
+
+/* 음식 카드가 열렸을 때만 z-index를 올려서 맨 위로 올리고, 클릭 허용 */
+.option-food.active .option-overlay {
+    pointer-events: auto;
+    z-index: 3;
+}
+
+
 
 /*------------------------------------ Favorites CSS END--------------------------------------*/
 

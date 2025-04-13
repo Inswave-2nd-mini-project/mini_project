@@ -253,17 +253,8 @@ function handleVolumeUp() {
     music.volume = volumeRange.value / 100
 }
 
-document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
-        document.querySelectorAll('.option').forEach(o => o.classList.remove('active'));
-        option.classList.add('active');
-    });
 
-    // 추가로 iframe 위의 overlay도 클릭되도록
-    const overlay = document.createElement('div');
-    overlay.classList.add('option-overlay');
-    option.appendChild(overlay);
-});
+
 
 
 //-------------------------------------------comment-------------------------------------
