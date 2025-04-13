@@ -69,7 +69,7 @@
 		'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpKlXg%2FbtsNkgtJn5c%2F6k1xRTKNnApCQrsvgqm3K1%2Fimg.png',
 		'https://raw.githubusercontent.com/qotkdgus0430/study/main/bshidphoto.png',	// 상현씨 이미지
 		'images/yellow.png',	// 지현씨 이미지
-		'images/green.png'		// 경원씨 이미지
+		'https://velog.velcdn.com/images/ykw1230/post/ee951902-1170-4c12-b9af-49c8d3c3ae6a/image.png'		// 경원씨 이미지
 	  ];
 	
 	  function update() {

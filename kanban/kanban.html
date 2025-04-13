@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Task Manager - Interactive Pickers</title>
+	<title>Kanban Board</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/kanban/kanban.css">
 	<link rel="stylesheet" href="../navi/navi.css">
@@ -13,208 +13,139 @@
 <body>
 	<div id="navi-container"></div>
 	<button class="theme-toggle" id="themeToggle">🌙</button>
-	<button class="help-toggle" id="helpToggle">❓</button>
 
-	<!-- Help modal -->
-	<div class="modal" id="helpModal">
-		<div class="modal__content help-modal__content">
-			<button class="modal__close" onclick="closeHelpModal()">&times;</button>
-			<div class="help-header">
-				<div class="help-icon">📘</div>
-				<h2>User Guide</h2>
-			</div>
-			<p class="help-intro">Welcome to Task Manager! This guide will help you get the most out of this application.</p>
 
-			<div class="help-content">
-				<section class="help-section">
-					<div class="help-section-header">
-						<div class="help-section-icon">🎯</div>
-						<h3>Getting Started</h3>
-					</div>
-					<div class="help-section-content">
-						<p>Task Manager helps you organize your work with a simple kanban board:</p>
-						<ul>
-							<li><strong>To Do</strong> - Tasks you haven't started yet</li>
-							<li><strong>In Progress</strong> - Tasks you're currently working on</li>
-							<li><strong>Done</strong> - Tasks you've completed</li>
-						</ul>
-					</div>
-				</section>
-
-				<section class="help-section">
-					<div class="help-section-header">
-						<div class="help-section-icon">➕</div>
-						<h3>Creating Tasks</h3>
-					</div>
-					<div class="help-section-content">
-						<p>To create a new task:</p>
-						<ol>
-							<li>Click the <strong>"+ Add Task"</strong> button in any column</li>
-							<li>Fill in the task details (title is required)</li>
-							<li>Customize your task with a deadline, color, and image</li>
-							<li>Click <strong>"Add Task"</strong> to save</li>
-						</ol>
-					</div>
-				</section>
-
-				<section class="help-section">
-					<div class="help-section-header">
-						<div class="help-section-icon">🔄</div>
-						<h3>Managing Tasks</h3>
-					</div>
-					<div class="help-section-content">
-						<p>You can easily manage your tasks with these actions:</p>
-						<ul>
-							<li><strong>Move</strong> - Drag and drop tasks between columns to update their status</li>
-							<li><strong>Edit</strong> - Click the ✏️ icon to modify a task's details</li>
-							<li><strong>Delete</strong> - Click the 🗑️ icon to remove a task (confirmation required)</li>
-						</ul>
-					</div>
-				</section>
-
-				<section class="help-section">
-					<div class="help-section-header">
-						<div class="help-section-icon">💡</div>
-						<h3>Pro Tips</h3>
-					</div>
-					<div class="help-section-content">
-						<ul>
-							<li><strong>Local Storage</strong> - Your tasks are automatically saved in your browser</li>
-							<li><strong>Dark Mode</strong> - Toggle between light and dark themes with the 🌙/☀️ button</li>
-							<li><strong>Task Stats</strong> - View your progress with the counters at the top of the page</li>
-							<li><strong>Task Colors</strong> - Use colors to categorize or prioritize your tasks</li>
-							<li><strong>Images</strong> - Add images to tasks that need visual context</li>
-						</ul>
-					</div>
-				</section>
-			</div>
-
-			<div class="help-footer">
-				<button class="btn help-close-btn" onclick="closeHelpModal()">Got it!</button>
-			</div>
-		</div>
-	</div>
-
+	<!--------------------------------------------헤더------------------------------------------------------->
 	<header class="header">
 		<div class="header__content">
-			<h1 class="header__title">Task Manager</h1>
-			<p class="header__subtitle">Manage your tasks with style</p>
+			<h1 class="header__title">Kanban Board</h1>
+			<p class="header__subtitle">🌱일석이조의 칸반보드🌱</p>
 			<div class="header__stats">
 				<div class="header__stat">
 					<div class="header__stat-value" id="totalTasks">0</div>
-					<div class="header__stat-label">Total Tasks</div>
-				</div>
-				<div class="header__stat">
-					<div class="header__stat-value" id="completedTasks">0</div>
-					<div class="header__stat-label">Completed</div>
+					<div class="header__stat-label">전체</div>
 				</div>
 				<div class="header__stat">
 					<div class="header__stat-value" id="inProgressTasks">0</div>
-					<div class="header__stat-label">In Progress</div>
+					<div class="header__stat-label">진행</div>
+				</div>
+				<div class="header__stat">
+					<div class="header__stat-value" id="completedTasks">0</div>
+					<div class="header__stat-label">완료</div>
 				</div>
 			</div>
 		</div>
 	</header>
+	<!-----------------------------------------헤더 END----------------------------------------------------->
 
+
+	<!------------------------------------------main block------------------------------------------------------->
 	<div class="container">
 		<div class="board">
 			<div class="column" id="todo">
 				<div class="column__header">
-					<h2 class="column__title">📝 To Do</h2>
+					<h2 class="column__title">📝 해야할 작업</h2>
 					<span class="column__count">0</span>
 				</div>
 				<div class="task-list">
-					<div class="add-task">+ Add Task</div>
+					<div class="add-task">+ 추가</div>
 				</div>
 			</div>
 
 			<div class="column" id="progress">
 				<div class="column__header">
-					<h2 class="column__title">🔄 In Progress</h2>
+					<h2 class="column__title">🔄 진행중인 작업</h2>
 					<span class="column__count">0</span>
 				</div>
 				<div class="task-list">
-					<div class="add-task">+ Add Task</div>
+					<div class="add-task">+ 추가</div>
 				</div>
 			</div>
 
 			<div class="column" id="done">
 				<div class="column__header">
-					<h2 class="column__title">✅ Done</h2>
+					<h2 class="column__title">✅ 완료한 작업</h2>
 					<span class="column__count">0</span>
 				</div>
 				<div class="task-list">
-					<div class="add-task">+ Add Task</div>
+					<div class="add-task">+ 추가</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!------------------------------------------main block------------------------------------------------------->
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="social-links">
-            일석이조의 칸반보드
-		</div>
-	</footer>
 
-	<!-- Modal for adding/editing a task -->
+	<!----------------------------------------작업 추가 modal-------------------------------------------------------->
 	<div class="modal" id="taskModal">
 		<div class="modal__content">
 			<button class="modal__close" onclick="closeModal()">&times;</button>
-			<h2>New Task</h2>
+			<h2>작업 추가</h2>
+			<br>
 			<form class="task-form" id="taskForm">
 				<input type="hidden" id="editTaskId">
 				<input type="hidden" id="columnType">
 				<div class="form-group">
-					<label for="taskTitle">Title</label>
+					<label for="taskTitle">제목</label>
 					<input type="text" id="taskTitle" required>
 				</div>
 				<div class="form-group">
-					<label for="taskDescription">Description</label>
+					<label for="taskDescription">설명</label>
 					<textarea id="taskDescription" rows="3"></textarea>
 				</div>
 				<div class="form-group">
-					<label for="taskDeadline">Deadline</label>
-					<input type="datetime-local" id="taskDeadline">
+					<label for="taskDeadline">마감기한</label>
+					<input type="date" id="taskDeadline">
 				</div>
 				<div class="form-group">
-					<label>Task Color</label>
+					<label>라벨 색상</label>
 					<div class="color-picker">
 						<input type="color" id="taskColor" value="#3a86ff">
-						<span>Choose a color for your task</span>
+						<span>할일에 표시될 색상을 선택해주세요!</span>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="taskImage">Image</label>
-					<input type="file" id="taskImage" accept="image/*">
 				</div>
 				<button type="submit" class="btn">Add Task</button>
 			</form>
 		</div>
 	</div>
+	<!----------------------------------------작업 추가 modal END---------------------------------------------------->
 
-	<!-- Confirmation modal -->
+
+	<!-------------------------------------------공통 확인 modal ---------------------------------------------------->
 	<div class="modal" id="confirmationModal">
 		<div class="modal__content">
 			<div class="confirmation-check">✅</div>
-			<h3>Success!</h3>
 			<p id="confirmationMessage"></p>
 		</div>
 	</div>
+	<!-------------------------------------------공통 확인 modal END------------------------------------------------->
 
-	<!-- Delete confirmation modal -->
+
+	<!---------------------------------------------삭제 확인 modal ---------------------------------------------------->
 	<div class="modal" id="deleteConfirmationModal">
 		<div class="modal__content">
-			<h3>Confirm Deletion</h3>
-			<p>Are you sure you want to delete this task?</p>
+			<h3>🗑️할일 삭제🗑️</h3>
+			<br>
+			<p>정말로 삭제하시겠습니까?</p>
 			<div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
-				<button class="btn" id="cancelDeleteBtn">Cancel</button>
-				<button class="btn" style="background: var(--accent)" id="confirmDeleteBtn">Delete</button>
+				<button class="btn" id="cancelDeleteBtn">취소</button>
+				<button class="btn" style="background: var(--accent)" id="confirmDeleteBtn">삭제</button>
 			</div>
 		</div>
 	</div>
+	<!-------------------------------------------삭제 확인 modal END------------------------------------------------->
+
+	
+	<!----------------------------------------Footer---------------------------------------------------------->
+	<footer class="footer">
+		<div class="social-links">
+            🚀일석이조의 칸반보드
+		</div>
+	</footer>
+	<!----------------------------------------Footer END------------------------------------------------------>
 
 </body>
+
 <script type="module" src="/kanban/kanban.js"></script>
 
 </html>

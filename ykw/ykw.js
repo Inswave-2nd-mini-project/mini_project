@@ -128,7 +128,7 @@ function phone(){
         confirmButtonText : "닫기"
     });
 }
-/*--------------------------사이드 SNS버튼 안의 연락처 버튼 swa END----------------------------*/
+/*--------------------------사이드 SNS버튼 안의 연락처 버튼 END----------------------------*/
 
 
 // About me 카드 클릭 시 열고 닫기
@@ -253,6 +253,17 @@ function handleVolumeUp() {
     music.volume = volumeRange.value / 100
 }
 
+document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', () => {
+        document.querySelectorAll('.option').forEach(o => o.classList.remove('active'));
+        option.classList.add('active');
+    });
+
+    // 추가로 iframe 위의 overlay도 클릭되도록
+    const overlay = document.createElement('div');
+    overlay.classList.add('option-overlay');
+    option.appendChild(overlay);
+});
 
 
 //-------------------------------------------comment-------------------------------------
