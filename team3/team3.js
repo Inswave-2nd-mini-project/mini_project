@@ -114,10 +114,10 @@
 			const imageEl = closestTab.querySelector('.tabImage');
 	
 			// 배경색 부드럽게 바꾸기
-			gsap.to(document.body, {
-				backgroundColor: targetColor,
-				duration: 0.4
-			});
+			// gsap.to(document.body, {
+			// 	backgroundColor: targetColor,
+			// 	duration: 0.4
+			// });
 	
 			if (imageEl) {
 				imageEl.setAttribute('href', imageArray[closestIndex]);
